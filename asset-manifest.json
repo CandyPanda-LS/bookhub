@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/bookhub/static/css/main.d8fe9cb7.css",
+    "main.js": "/bookhub/static/js/main.bfc624d1.js",
+    "static/js/787.f8e8aed9.chunk.js": "/bookhub/static/js/787.f8e8aed9.chunk.js",
+    "static/media/illustration.png": "/bookhub/static/media/illustration.803ca161cae9b9e4c6f0.png",
+    "static/media/avatar-ali.png": "/bookhub/static/media/avatar-ali.88f9155cb730934f4d7c.png",
+    "static/media/illustration-intro.svg": "/bookhub/static/media/illustration-intro.cb9a8a9551ca99f99a125230d38a2c36.svg",
+    "static/media/avatar-anisha.png": "/bookhub/static/media/avatar-anisha.484e15bc92ce6a0106ab.png",
+    "static/media/avatar-richard.png": "/bookhub/static/media/avatar-richard.ace8e0892f67a50c1e9e.png",
+    "static/media/logo-white.svg": "/bookhub/static/media/logo-white.6398d3dce8c3e2c9a07e99b97418d73d.svg",
+    "static/media/logo.svg": "/bookhub/static/media/logo.0dc44ba05b8e810841414d2369b9fd70.svg",
+    "static/media/icon-instagram.svg": "/bookhub/static/media/icon-instagram.54d3962efa2aa6085b776d1816557a6a.svg",
+    "static/media/icon-pinterest.svg": "/bookhub/static/media/icon-pinterest.45264b1d1cdf7f0c420d573853779f7b.svg",
+    "index.html": "/bookhub/index.html",
+    "static/media/icon-twitter.svg": "/bookhub/static/media/icon-twitter.01a8907dd0beb126cff27d505c31be52.svg",
+    "static/media/icon-facebook.svg": "/bookhub/static/media/icon-facebook.1e9b33385e6dfe7a61acbff13373209c.svg",
+    "main.d8fe9cb7.css.map": "/bookhub/static/css/main.d8fe9cb7.css.map",
+    "main.bfc624d1.js.map": "/bookhub/static/js/main.bfc624d1.js.map",
+    "787.f8e8aed9.chunk.js.map": "/bookhub/static/js/787.f8e8aed9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d8fe9cb7.css",
+    "static/js/main.bfc624d1.js"
+  ]
+}
