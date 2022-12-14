@@ -1,5 +1,5 @@
 import React from 'react'
-import illustration from '../assets/regBannerImg.png'
+import regBannerImg from '../assets/regBannerImg.png'
 
 
 function RegistrationPageComponent() {
@@ -15,7 +15,7 @@ function RegistrationPageComponent() {
                         </div>
                         {/* <!-- Image --> */}
                         <div class='md:w-1/4'>
-                            <img class="rounded-xl mx-auto" src={illustration} alt="" />
+                            <img class="rounded-xl mx-auto" src={regBannerImg} alt="" />
                         </div>
                     </div>
                 </div>
