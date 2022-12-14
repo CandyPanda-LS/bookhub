@@ -1,9 +1,9 @@
 import React from 'react'
-import logoWhite from '../../assets/logo-white.svg'
-import iconFacebook from '../../assets/icon-facebook.svg'
-import iconInstagram from '../../assets/icon-instagram.svg'
-import iconTwitter from '../../assets/icon-twitter.svg'
-import iconPinterest from '../../assets/icon-pinterest.svg'
+import logoWhite from '../assets/logo-white.svg'
+import iconFacebook from '../assets/icon-facebook.svg'
+import iconInstagram from '../assets/icon-instagram.svg'
+import iconTwitter from '../assets/icon-twitter.svg'
+import iconPinterest from '../assets/icon-pinterest.svg'
 
 
 function FooterComponent() {
