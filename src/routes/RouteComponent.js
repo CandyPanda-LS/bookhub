@@ -11,6 +11,7 @@ import FooterComponent from "../Components/FooterComponent";
 import HomePageComponent from "../Pages/HomePageComponent";
 import LoginPageComponent from "../Pages/LoginPageComponent";
 import RegistrationPageComponent from "../Pages/RegistrationPageComponent";
+import DigitalLibraryPageComponent from "../Pages/DigitalLibraryPageComponent";
 
 
 function RouteComponent() {
@@ -23,7 +24,7 @@ function RouteComponent() {
                     <Route path='/' element={<HomePageComponent/>} />
                     <Route path='/login' element={<LoginPageComponent/>} />
                     <Route path='/register' element={<RegistrationPageComponent/>} />
-
+                    <Route path='/digital-library' element={<DigitalLibraryPageComponent/>} />
                 </Routes>
                 
                 <CTAComponent/>
