@@ -12,6 +12,10 @@ import HomePageComponent from "../Pages/HomePageComponent";
 import LoginPageComponent from "../Pages/LoginPageComponent";
 import RegistrationPageComponent from "../Pages/RegistrationPageComponent";
 import DigitalLibraryPageComponent from "../Pages/DigitalLibraryPageComponent";
+import ContactUsPageComponent from "../Pages/ContactUsPageComponent";
+import ProfilePageComponent from "../Pages/ProfilePageComponent";
+import BookDonationPageComponent from "../Pages/BookDonationPageComponent";
+import BookBurrowPageComponent from "../Pages/BookBurrowPageComponent";
 
 
 function RouteComponent() {
@@ -25,6 +29,11 @@ function RouteComponent() {
                     <Route path='/login' element={<LoginPageComponent/>} />
                     <Route path='/register' element={<RegistrationPageComponent/>} />
                     <Route path='/digital-library' element={<DigitalLibraryPageComponent/>} />
+                    <Route path='/contact-us' element={<ContactUsPageComponent/>} />
+                    <Route path='/profile' element={<ProfilePageComponent/>} />
+                    <Route path='/donate' element={<BookDonationPageComponent/>} />
+                    <Route path='/burrow' element={<BookBurrowPageComponent/>} />
+
                 </Routes>
                 
                 <CTAComponent/>
