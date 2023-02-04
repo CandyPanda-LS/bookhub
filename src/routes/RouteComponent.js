@@ -1,9 +1,7 @@
-
 import React from "react";
-import { BrowserRouter as Router, Route , Routes} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-
-//common 
+//common
 import NavbarComponent from "../Components/NavbarComponent";
 import CTAComponent from "../Components/CTAComponent";
 import FooterComponent from "../Components/FooterComponent";
@@ -17,31 +15,31 @@ import ProfilePageComponent from "../Pages/ProfilePageComponent";
 import BookDonationPageComponent from "../Pages/BookDonationPageComponent";
 import BookBurrowPageComponent from "../Pages/BookBurrowPageComponent";
 
-
 function RouteComponent() {
   return (
     <Router>
-        <div>
-                <NavbarComponent/>
-                <Routes>
-                    <Route path='/bookhub' element={<HomePageComponent/>} />
-                    <Route path='/' element={<HomePageComponent/>} />
-                    <Route path='/login' element={<LoginPageComponent/>} />
-                    <Route path='/register' element={<RegistrationPageComponent/>} />
-                    <Route path='/digital-library' element={<DigitalLibraryPageComponent/>} />
-                    <Route path='/contact-us' element={<ContactUsPageComponent/>} />
-                    <Route path='/profile' element={<ProfilePageComponent/>} />
-                    <Route path='/donate' element={<BookDonationPageComponent/>} />
-                    <Route path='/burrow' element={<BookBurrowPageComponent/>} />
+      <div>
+        <NavbarComponent />
+        <Routes>
+          <Route path="/bookhub" element={<HomePageComponent />} />
+          <Route path="/" element={<HomePageComponent />} />
+          <Route path="/login" element={<LoginPageComponent />} />
+          <Route path="/register" element={<RegistrationPageComponent />} />
+          <Route
+            path="/digital-library"
+            element={<DigitalLibraryPageComponent />}
+          />
+          <Route path="/contact-us" element={<ContactUsPageComponent />} />
+          <Route path="/profile" element={<ProfilePageComponent />} />
+          <Route path="/donate" element={<BookDonationPageComponent />} />
+          <Route path="/burrow" element={<BookBurrowPageComponent />} />
+        </Routes>
 
-                </Routes>
-                
-                <CTAComponent/>
-                <FooterComponent/>
-            </div>
+        <CTAComponent />
+        <FooterComponent />
+      </div>
     </Router>
-    
-  )
+  );
 }
 
-export default RouteComponent
+export default RouteComponent;
