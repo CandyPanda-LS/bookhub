@@ -28,23 +28,23 @@ function FooterComponent() {
           {/* <!-- Social Links Container --> */}
           <div className="flex justify-center space-x-4">
             {/* <!-- Link 1 --> */}
-            <a href="#">
+            <a href="/">
               <img src={iconFacebook} alt="" className="h-8" />
             </a>
             {/* <!-- Link 2 --> */}
-            <a href="#">
+            <a href="/">
               <img src={iconInstagram} alt="" className="h-8" />
             </a>
             {/* <!-- Link 3 --> */}
-            <a href="#">
+            <a href="/">
               <img src={iconTwitter} alt="" className="h-8" />
             </a>
             {/* <!-- Link 4 --> */}
-            <a href="#">
+            <a href="/">
               <img src={iconPinterest} alt="" className="h-8" />
             </a>
             {/* <!-- Link 5 --> */}
-            <a href="#">
+            <a href="/">
               <img src={iconPinterest} alt="" className="h-8" />
             </a>
           </div>
@@ -52,15 +52,15 @@ function FooterComponent() {
         {/* <!-- List Container --> */}
         <div className="flex justify-around space-x-32">
           <div className="flex flex-col space-y-3 text-white">
-            <a href="#" className="hover:text-brightRed">Home</a>
-            <a href="#" className="hover:text-brightRed">Pricing</a>
-            <a href="#" className="hover:text-brightRed">Products</a>
-            <a href="#" className="hover:text-brightRed">About</a>
+            <a href="/" className="hover:text-brightRed">Home</a>
+            <a href="/" className="hover:text-brightRed">Pricing</a>
+            <a href="/" className="hover:text-brightRed">Products</a>
+            <a href="/" className="hover:text-brightRed">About</a>
           </div>
           <div className="flex flex-col space-y-3 text-white">
-            <a href="#" className="hover:text-brightRed">Careers</a>
-            <a href="#" className="hover:text-brightRed">Community</a>
-            <a href="#" className="hover:text-brightRed">Privacy Policy</a>
+            <a href="/" className="hover:text-brightRed">Careers</a>
+            <a href="/" className="hover:text-brightRed">Community</a>
+            <a href="/" className="hover:text-brightRed">Privacy Policy</a>
           </div>
         </div>
 

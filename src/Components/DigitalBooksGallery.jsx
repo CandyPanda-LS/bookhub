@@ -9,7 +9,7 @@ export default function DigitalBookGallery() {
 
   useEffect(() => {
     dispatch(fetchAllBooks());
-  }, []);
+  }, [dispatch]);
 
   return (
     <section id="gallery">

@@ -18,7 +18,7 @@ function CTAComponent() {
         {/* <!-- Button --> */}
         <div>
           <a
-            href="#"
+            href="/"
             className="p-3 px-6 pt-2 text-brightRed bg-white rounded-full shadow-2xl baseline hover:bg-gray-900"
             >Get Started
           </a>

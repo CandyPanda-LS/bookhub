@@ -18,6 +18,6 @@ const paperSlice = createSlice({
   },
 });
 
-export const {} = paperSlice.actions;
+// export const {} = paperSlice.actions;
 
 export default paperSlice.reducer;

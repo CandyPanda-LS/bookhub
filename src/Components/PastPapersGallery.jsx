@@ -15,7 +15,7 @@ export default function PastPapersGallery() {
 
     useEffect(() => {
       dispatch(fetchAllPapers());
-    }, []);
+    }, [dispatch]);
   
     const filterPapers = (papers, paperType) => {
       return papers.filter(function (el) {
