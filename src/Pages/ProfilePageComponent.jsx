@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
+import { useSelector } from "react-redux";
 
 function ProfilePageComponent() {
+  const user = useSelector((state) => state.user.user);
   return (
     <div>
-
       <section className=" bg-blueGray-200">
         <div className="container mx-auto px-4">
           <div className="flex flex-col min-w-0 break-words bg-slate-50 w-full mb-6 shadow-xl rounded-lg mt-2">
@@ -11,14 +12,19 @@ function ProfilePageComponent() {
               <div className="flex flex-wrap justify-center">
                 <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
                   <div className="">
-                    <img className="w-44 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src="https://scontent.fcmb2-2.fna.fbcdn.net/v/t39.30808-6/303116441_862583885126583_4062530546096845958_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Rjdw5lA7mrsAX-g6UDr&_nc_ht=scontent.fcmb2-2.fna&oh=00_AfAtd4KEh0GaySwX8KPim20AfYvG0T3xEfQvuyul9nNv0w&oe=63DE7F50" alt="Bordered avatar" />
-
-                    {/* <img alt="..." src="https://demos.creative-tim.com/notus-js/assets/img/team-2-800x800.jpg" className="shadow-xl rounded-full align-middle border-none" width="150px" /> */}
+                    <img
+                      className="w-44 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
+                      src="https://scontent.fcmb2-2.fna.fbcdn.net/v/t39.30808-6/303116441_862583885126583_4062530546096845958_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Rjdw5lA7mrsAX-g6UDr&_nc_ht=scontent.fcmb2-2.fna&oh=00_AfAtd4KEh0GaySwX8KPim20AfYvG0T3xEfQvuyul9nNv0w&oe=63DE7F50"
+                      alt="Bordered avatar"
+                    />
                   </div>
                 </div>
                 <div className="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
                   <div className="py-6 px-3 mt-32 sm:mt-0">
-                    <button className="bg-brightRed uppercase text-white font-bold hover:shadow-md shadow text-xs px-6 py-3 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" type="button">
+                    <button
+                      className="bg-brightRed uppercase text-white font-bold hover:shadow-md shadow text-xs px-6 py-3 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
+                      type="button"
+                    >
                       Connect
                     </button>
                   </div>
@@ -26,47 +32,61 @@ function ProfilePageComponent() {
                 <div className="w-full lg:w-4/12 px-4 lg:order-1">
                   <div className="flex justify-center py-4 lg:pt-4 pt-8">
                     <div className="mr-4 p-3 text-center">
-                      <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">22</span><span className="text-sm text-blueGray-400">Books Donated</span>
+                      <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                        22
+                      </span>
+                      <span className="text-sm text-blueGray-400">
+                        Books Donated
+                      </span>
                     </div>
                     <div className="mr-4 p-3 text-center">
-                      <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">10</span><span className="text-sm text-blueGray-400">Books Burrowd</span>
+                      <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                        10
+                      </span>
+                      <span className="text-sm text-blueGray-400">
+                        Books Burrowd
+                      </span>
                     </div>
                     <div className="lg:mr-4 p-3 text-center">
-                      <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">89</span><span className="text-sm text-blueGray-400">Audio Books</span>
+                      <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                        89
+                      </span>
+                      <span className="text-sm text-blueGray-400">
+                        Audio Books
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="text-center mt-12">
                 <h3 className="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-                  Jenna Stones
+                  {user.fullName}
                 </h3>
                 <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
                   <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
-                  Los Angeles, California
+                  {user.email}
+                </div>
+                <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
+                  <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
+                  {user.contactNumber}
+                </div>
+                <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
+                  <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
+                  {user.address}
                 </div>
                 <div className="mb-2 text-blueGray-600 mt-10">
-                  <i className="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>Solution Manager - Creative Tim Officer
+                  <i className="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
+                  {user.student ? (
+                    <span>Student</span>
+                  ) : (
+                    <span>Proffesional</span>
+                  )}
                 </div>
                 <div className="mb-2 text-blueGray-600">
-                  <i className="fas fa-university mr-2 text-lg text-blueGray-400"></i>University of Computer Science
+                  <i className="fas fa-university mr-2 text-lg text-blueGray-400"></i>
+                  {user.companyOrUniversity}
                 </div>
               </div>
-              <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
-                <div className="flex flex-wrap justify-center">
-                  <div className="w-full lg:w-9/12 px-4">
-                    <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
-                      An artist of considerable range, Jenna the name taken by
-                      Melbourne-raised, Brooklyn-based Nick Murphy writes,
-                      performs and records all of his own music, giving it a
-                      warm, intimate feel with a solid groove structure. An
-                      artist of considerable range.
-                    </p>
-                    <a href="#pablo" className="font-normal text-pink-500">Show more</a>
-                  </div>
-                </div>
-              </div>
-
               <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
                 <div className="flex flex-wrap justify-center">
                   <div className="w-full lg:w-9/12 px-4">
@@ -76,32 +96,23 @@ function ProfilePageComponent() {
                       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                           <tr>
-                            <th scope="col" className="p-4">
-                              <div className="flex items-center">
-                                <input id="checkbox-all-search" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
-                                  <label htmlFor="checkbox-all-search" className="sr-only">checkbox</label>
-                              </div>
+                            <th scope="col" className="px-6 py-3">
+                              Title
                             </th>
                             <th scope="col" className="px-6 py-3">
-                              Product name
+                              Edition
                             </th>
                             <th scope="col" className="px-6 py-3">
-                              Color
+                              Publisher
                             </th>
                             <th scope="col" className="px-6 py-3">
-                              Category
+                              Genre
                             </th>
                             <th scope="col" className="px-6 py-3">
-                              Accesories
+                              Author
                             </th>
                             <th scope="col" className="px-6 py-3">
-                              Available
-                            </th>
-                            <th scope="col" className="px-6 py-3">
-                              Price
-                            </th>
-                            <th scope="col" className="px-6 py-3">
-                              Weight
+                              Status
                             </th>
                             <th scope="col" className="px-6 py-3">
                               Action
@@ -109,76 +120,47 @@ function ProfilePageComponent() {
                           </tr>
                         </thead>
                         <tbody>
-                          <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td className="w-4 p-4">
-                              <div className="flex items-center">
-                                <input id="checkbox-table-search-1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
-                                  <label htmlFor="checkbox-table-search-1" className="sr-only">checkbox</label>
-                              </div>
-                            </td>
-                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                              Apple MacBook Pro 17"
-                            </th>
-                            <td className="px-6 py-4">
-                              Sliver
-                            </td>
-                            <td className="px-6 py-4">
-                              Laptop
-                            </td>
-                            <td className="px-6 py-4">
-                              Yes
-                            </td>
-                            <td className="px-6 py-4">
-                              Yes
-                            </td>
-                            <td className="px-6 py-4">
-                              $2999
-                            </td>
-                            <td className="px-6 py-4">
-                              3.0 lb.
-                            </td>
-                            <td className="flex items-center px-6 py-4 space-x-3">
-                              <a href="/" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                              <a href="/" className="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
-                            </td>
-                          </tr>
-                          <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td className="w-4 p-4">
-                              <div className="flex items-center">
-                                <input id="checkbox-table-search-1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
-                                  <label htmlFor="checkbox-table-search-1" className="sr-only">checkbox</label>
-                              </div>
-                            </td>
-                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                              Apple MacBook Pro 17"
-                            </th>
-                            <td className="px-6 py-4">
-                              Sliver
-                            </td>
-                            <td className="px-6 py-4">
-                              Laptop
-                            </td>
-                            <td className="px-6 py-4">
-                              Yes
-                            </td>
-                            <td className="px-6 py-4">
-                              Yes
-                            </td>
-                            <td className="px-6 py-4">
-                              $2999
-                            </td>
-                            <td className="px-6 py-4">
-                              3.0 lb.
-                            </td>
-                            <td className="flex items-center px-6 py-4 space-x-3">
-                              <a href="/" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                              <a href="/" className="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
-                            </td>
-                          </tr>
+                          {user.donatedBookList.length &&
+                            user.donatedBookList.map((book) => {
+                              return (
+                                <tr
+                                  key={book.id}
+                                  className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                                >
+                                  <th
+                                    scope="row"
+                                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                                  >
+                                    {book.title}
+                                  </th>
+                                  <td className="px-6 py-4"> {book.edition}</td>
+                                  <td className="px-6 py-4">
+                                    {" "}
+                                    {book.publisher}
+                                  </td>
+                                  <td className="px-6 py-4"> {book.genre}</td>
+                                  <td className="px-6 py-4"> {book.author}</td>
+                                  <td className="px-6 py-4"> {book.status}</td>
+                                  <td className="flex items-center px-6 py-4 space-x-3">
+                                    <a
+                                      href="/"
+                                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                                    >
+                                      Edit
+                                    </a>
+                                    <a
+                                      href="/"
+                                      className="font-medium text-red-600 dark:text-red-500 hover:underline"
+                                    >
+                                      Remove
+                                    </a>
+                                  </td>
+                                </tr>
+                              );
+                            })}
                         </tbody>
                       </table>
                     </div>
-
                   </div>
                 </div>
               </div>
@@ -186,9 +168,8 @@ function ProfilePageComponent() {
           </div>
         </div>
       </section>
-
     </div>
-  )
+  );
 }
 
-export default ProfilePageComponent
+export default ProfilePageComponent;

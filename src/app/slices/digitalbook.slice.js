@@ -1,13 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchAllBooks } from "../actions/digitalbook.action";
 
+const getBookByIdFunc = (bookList, bookId) => {
+  const result = bookList.filter(function (el) {
+    return el.id === bookId;
+  });
+
+  return result ? result[0] : null; // or undefined
+};
+
 const digitalBookSlice = createSlice({
   name: "digitalbook",
   initialState: {
     books: [],
-    status:"success"
+    book: null,
+    status: "success",
   },
-  reducers: {},
+  reducers: {
+    getBookById: (state, action) => {
+      state.book = getBookByIdFunc(state.books, action.payload);
+    },
+  },
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
     builder.addCase(fetchAllBooks.fulfilled, (state, action) => {
@@ -18,6 +31,6 @@ const digitalBookSlice = createSlice({
   },
 });
 
-// export const {} = digitalBookSlice.actions;
+export const { getBookById } = digitalBookSlice.actions;
 
 export default digitalBookSlice.reducer;
