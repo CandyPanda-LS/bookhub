@@ -9,13 +9,13 @@ export const fetchAllBooks = createAsyncThunk(
   }
 );
 
-//   export const savePost = createAsyncThunk(
-//     "posts/savePost",
-//     async (newPost) => {
-//       const response = await POSTAPI.savePost(newPost);
-//       return response.data;
-//     }
-//   );
+  export const saveDigitalBook = createAsyncThunk(
+    "digitalbook/saveDigitalbook",
+    async (newDigitalBook) => {
+      const response = await DIGITALBOOKAPI.saveDigitalBooks(newDigitalBook);
+      return response.data;
+    }
+  );
 
 //   export const deletePost = createAsyncThunk(
 //     "posts/deletePost",

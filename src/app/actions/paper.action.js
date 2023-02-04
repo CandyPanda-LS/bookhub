@@ -9,13 +9,13 @@ export const fetchAllPapers = createAsyncThunk(
   }
 );
 
-//   export const savePost = createAsyncThunk(
-//     "posts/savePost",
-//     async (newPost) => {
-//       const response = await POSTAPI.savePost(newPost);
-//       return response.data;
-//     }
-//   );
+  export const savePastPaper = createAsyncThunk(
+    "paper/savePastPaper",
+    async (newPastPaper) => {
+      const response = await PAPERAPI.savePastPaper(newPastPaper);
+      return response.data;
+    }
+  );
 
 //   export const deletePost = createAsyncThunk(
 //     "posts/deletePost",
