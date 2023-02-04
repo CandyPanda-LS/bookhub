@@ -4,7 +4,7 @@ function ContactUsPageComponent() {
   return (
     <div className="m-5">
       <section
-        ection
+        ection="true"
         id="contact"
         className="relative z-10 overflow-hidden bg-slate-100 px-10 py-10 rounded-xl"
       >

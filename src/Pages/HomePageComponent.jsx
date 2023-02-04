@@ -41,7 +41,12 @@ function HomePageComponent() {
             </div>
             {/* <!-- Image --> */}
             <div className="md:w-1/2">
-              <img width="110%" className="rounded-3xl" src={illustration} alt="" />
+              <img
+                width="110%"
+                className="rounded-3xl"
+                src={illustration}
+                alt=""
+              />
             </div>
           </div>
         </section>
@@ -61,18 +66,16 @@ function HomePageComponent() {
                 access to books to everyone, regardless of their financial or
                 physical limitations. With our platform, we strive to promote
                 learning and literacy for all. Our platform provides :
-                <ul type="disc">
-                  <li>Access to books in the open domain</li>
-                  <li>Access to past papers</li>
-                  <li>
-                    Ability to donate stationary and books for the needful
-                  </li>
-                  <li>Ability to Burrow and share books with friends</li>
-                  <li>
-                    Register today and get access to all the available features.
-                  </li>
-                </ul>
               </p>
+              <ul type="disc">
+                <li>Access to books in the open domain</li>
+                <li>Access to past papers</li>
+                <li>Ability to donate stationary and books for the needful</li>
+                <li>Ability to Burrow and share books with friends</li>
+                <li>
+                  Register today and get access to all the available features.
+                </li>
+              </ul>
             </div>
 
             {/* <!-- Numbered List --> */}
