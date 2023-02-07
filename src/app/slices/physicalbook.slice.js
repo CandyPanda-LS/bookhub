@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 const physicalBookSlice = createSlice({
   name: "physicalbook",
   initialState: {
-    physicalbooks: [],
+    books: [],
     status:"success"
   },
   reducers: {},
@@ -13,12 +13,12 @@ const physicalBookSlice = createSlice({
     // Add reducers for additional action types here, and handle loading state as needed
     builder.addCase(fetchAllPhysicalBooks.fulfilled, (state, action) => {
       // Add user to the state array
-      state.physicalbooks = action.payload;
+      state.books = action.payload;
       state.status = "success";
     });
     builder.addCase(donatePhysicalBook.fulfilled, (state, action) => {
       // Add user to the state array
-      state.physicalbooks = [...state.physicalbooks,action.payload];
+      state.books = [...state.physicalbooks,action.payload];
       state.status = "success";
       toast.success("Donation Succes");
     });

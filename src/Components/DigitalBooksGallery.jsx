@@ -5,7 +5,7 @@ import DigitalBookComponent from "./DigitalBookComponent";
 
 export default function DigitalBookGallery() {
   const dispatch = useDispatch();
-  const books = useSelector((state) => state.digitalbook.books);
+  const books = useSelector((state) => state.digitalbook.filterBooks);
 
   useEffect(() => {
     dispatch(fetchAllBooks());

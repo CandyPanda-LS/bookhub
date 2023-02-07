@@ -10,10 +10,10 @@ const getBookByIdFunc = (bookList, bookId) => {
 };
 
 const filterBooks = (bookList, searchWord) => {
-  let filteredList =  bookList.filter(function (el) {
-    return el.title === searchWord;
+  let newArray = bookList.filter(function (el) {
+    return el.title.toLowerCase().includes(searchWord.toLowerCase());
   });
-  return filteredList;
+  return newArray;
 };
 
 const digitalBookSlice = createSlice({
@@ -29,7 +29,7 @@ const digitalBookSlice = createSlice({
       state.book = getBookByIdFunc(state.books, action.payload);
     },
     filteringBooks: (state, action) => {
-      console.log(filterBooks(state.books, action.payload))
+      console.log(filterBooks(state.books, action.payload));
       state.filterBooks = filterBooks(state.books, action.payload);
     },
   },
@@ -38,6 +38,7 @@ const digitalBookSlice = createSlice({
     builder.addCase(fetchAllBooks.fulfilled, (state, action) => {
       // Add user to the state array
       state.books = action.payload;
+      state.filterBooks = action.payload;
       state.status = "success";
     });
   },
