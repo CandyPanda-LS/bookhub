@@ -19,14 +19,16 @@ const userSlice = createSlice({
     // Add reducers for additional action types here, and handle loading state as needed
     builder.addCase(login.fulfilled, (state, action) => {
       // Add user to the state array
-      window.location.href = "/"
       state.user = action.payload;
       state.loginStatus = true;
+      localStorage.setItem("Role", action.payload.roles[0]);
       localStorage.setItem("Authorization", action.payload.accessToken);
+      window.location.href = "/"
     });
     builder.addCase(register.fulfilled, (state, action) => {
       // Add user to the state array
       localStorage.removeItem("Authorization");
+      localStorage.removeItem("Role");
       window.location.href = "/login"
     });
     builder.addCase(getUser.fulfilled, (state, action) => {

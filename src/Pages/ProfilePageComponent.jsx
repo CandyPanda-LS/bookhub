@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import UserIcon from "../assets/user-icon.png"
 
 function ProfilePageComponent() {
   const user = useSelector((state) => state.user.user);
@@ -14,7 +15,11 @@ function ProfilePageComponent() {
                   <div className="">
                     <img
                       className="w-44 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
-                      src="https://scontent.fcmb2-2.fna.fbcdn.net/v/t39.30808-6/303116441_862583885126583_4062530546096845958_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Rjdw5lA7mrsAX-g6UDr&_nc_ht=scontent.fcmb2-2.fna&oh=00_AfAtd4KEh0GaySwX8KPim20AfYvG0T3xEfQvuyul9nNv0w&oe=63DE7F50"
+                      src={
+                        user.profileImageLink
+                          ? user.profileImageLink
+                          : UserIcon
+                      }
                       alt="Bordered avatar"
                     />
                   </div>

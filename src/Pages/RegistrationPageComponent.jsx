@@ -158,6 +158,7 @@ function RegistrationPageComponent() {
                             id="full-name"
                             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             onChange={(e) => setfullName(e.target.value)}
+                            required
                           />
                         </div>
                         <div className="col-span-6 sm:col-span-3">
@@ -173,6 +174,7 @@ function RegistrationPageComponent() {
                             id="last-name"
                             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             onChange={(e) => setcontactNumber(e.target.value)}
+                            required
                           />
                         </div>
 
@@ -190,6 +192,7 @@ function RegistrationPageComponent() {
                             autoComplete="email"
                             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             onChange={(e) => setemail(e.target.value)}
+                            required
                           />
                         </div>
 
@@ -207,6 +210,7 @@ function RegistrationPageComponent() {
                             autoComplete="street-address"
                             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             onChange={(e) => setaddress(e.target.value)}
+                            required
                           />
                         </div>
                         <div className="col-span-6 sm:col-span-3 lg:col-span-2">
@@ -225,6 +229,7 @@ function RegistrationPageComponent() {
                             onChange={(e) =>
                               setcompanyOrUniversity(e.target.value)
                             }
+                            required
                           />
                         </div>
                         <div className="col-span-6 sm:col-span-6 lg:col-span-2">
@@ -241,6 +246,7 @@ function RegistrationPageComponent() {
                             autoComplete="address-level2"
                             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             onChange={(e) => setpassword(e.target.value)}
+                            required
                           />
                         </div>
 
@@ -258,6 +264,7 @@ function RegistrationPageComponent() {
                             autoComplete="address-level1"
                             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             onChange={(e) => setconfirmPassword(e.target.value)}
+                            required
                           />
                         </div>
 
