@@ -9,10 +9,10 @@ export const fetchAllPhysicalBooks = createAsyncThunk(
   }
 );
 
-  export const donatePhysicalBook = createAsyncThunk(
-    "physicalbook/donatePhysicalBook",
-    async (newPhysicalBook) => {
-      const response = await PHYSICALBOOKAPI.donatePhysicalBook(newPhysicalBook);
-      return response.data;
-    }
-  );
+export const donatePhysicalBook = createAsyncThunk(
+  "physicalbook/donatePhysicalBook",
+  async (newPhysicalBook) => {
+    const response = await PHYSICALBOOKAPI.donatePhysicalBook(newPhysicalBook);
+    return response.data;
+  }
+);

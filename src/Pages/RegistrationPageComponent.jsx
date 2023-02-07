@@ -4,8 +4,7 @@ import { storage } from "../firebase";
 import { register } from "../app/actions/user.actions";
 import regBannerImg from "../assets/regBannerImg.png";
 import { ProgressBar } from "react-loader-spinner";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 function RegistrationPageComponent() {
   const dispatch = useDispatch();
@@ -70,8 +69,8 @@ function RegistrationPageComponent() {
         contactNumber,
         isStudent: isStudent === "on" ? true : false,
         companyOrUniversity,
-        isPrivacyEnable:isPrivacyEnable === "on" ? true : false,
-        profileImageLink
+        isPrivacyEnable: isPrivacyEnable === "on" ? true : false,
+        profileImageLink,
       };
       dispatch(register(userDetails));
     }
@@ -354,7 +353,12 @@ function RegistrationPageComponent() {
                 <div>
                   <div className="shadow sm:overflow-hidden sm:rounded-md">
                     {uploadPercentage === 100 && (
-                      <img src={profileImageLink} width={300} height={300} />
+                      <img
+                        alt="Profile Avatar"
+                        src={profileImageLink}
+                        width={300}
+                        height={300}
+                      />
                     )}
                     {uploadPercentage > 0 && uploadPercentage < 100 && (
                       <ProgressBar
@@ -426,18 +430,6 @@ function RegistrationPageComponent() {
             </div>
           </div>
         </div>
-        <ToastContainer
-          position="top-right"
-          autoClose={4000}
-          hideProgressBar={false}
-          newestOnTop
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
       </section>
     </div>
   );

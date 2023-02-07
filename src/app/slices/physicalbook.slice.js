@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchAllPhysicalBooks,donatePhysicalBook } from "../actions/physicalbook.action";
+import { toast } from "react-toastify";
 
 const physicalBookSlice = createSlice({
   name: "physicalbook",
@@ -14,6 +15,12 @@ const physicalBookSlice = createSlice({
       // Add user to the state array
       state.physicalbooks = action.payload;
       state.status = "success";
+    });
+    builder.addCase(donatePhysicalBook.fulfilled, (state, action) => {
+      // Add user to the state array
+      state.physicalbooks = [...state.physicalbooks,action.payload];
+      state.status = "success";
+      toast.success("Donation Succes");
     });
   },
 });
