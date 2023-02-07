@@ -93,7 +93,7 @@ function LoginPageComponent() {
                     <AiFillLock />
                   </span>
                   <input
-                    type="text"
+                    type="password"
                     name="company-website"
                     id="company-website"
                     className="block w-full flex-1 rounded-none rounded-r-md border-gray-300 focus:border-brightRed focus:ring-brightRed sm:text-sm"

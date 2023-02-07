@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getUser, login } from "../actions/user.actions";
+import { getUser, login, register } from "../actions/user.actions";
 
 const userSlice = createSlice({
   name: "user",
@@ -23,6 +23,11 @@ const userSlice = createSlice({
       state.user = action.payload;
       state.loginStatus = true;
       localStorage.setItem("Authorization", action.payload.accessToken);
+    });
+    builder.addCase(register.fulfilled, (state, action) => {
+      // Add user to the state array
+      localStorage.removeItem("Authorization");
+      window.location.href = "/login"
     });
     builder.addCase(getUser.fulfilled, (state, action) => {
       // Add user to the state array

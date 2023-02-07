@@ -4,6 +4,7 @@ import logo from "../assets/logo.svg";
 import { getUser } from "../app/actions/user.actions";
 import { logout } from "../app/slices/user.slice";
 import { Link } from "react-router-dom";
+import UserIcon from "../assets/user-icon.png"
 
 function NavbarComponent() {
   const dispatch = useDispatch();
@@ -72,7 +73,11 @@ function NavbarComponent() {
               <Link to="/profile" className="hidden md:block">
                 <img
                   className="w-12 h-12 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
-                  src="https://scontent.fcmb2-2.fna.fbcdn.net/v/t39.30808-6/303116441_862583885126583_4062530546096845958_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Rjdw5lA7mrsAX-g6UDr&_nc_ht=scontent.fcmb2-2.fna&oh=00_AfAtd4KEh0GaySwX8KPim20AfYvG0T3xEfQvuyul9nNv0w&oe=63DE7F50"
+                  src={
+                    userState.user.profileImageLink
+                      ? userState.user.profileImageLink
+                      : UserIcon
+                  }
                   alt="Bordered avatar"
                 />
               </Link>

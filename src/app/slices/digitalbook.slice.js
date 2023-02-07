@@ -9,16 +9,28 @@ const getBookByIdFunc = (bookList, bookId) => {
   return result ? result[0] : null; // or undefined
 };
 
+const filterBooks = (bookList, searchWord) => {
+  let filteredList =  bookList.filter(function (el) {
+    return el.title === searchWord;
+  });
+  return filteredList;
+};
+
 const digitalBookSlice = createSlice({
   name: "digitalbook",
   initialState: {
     books: [],
     book: null,
     status: "success",
+    filterBooks: [],
   },
   reducers: {
     getBookById: (state, action) => {
       state.book = getBookByIdFunc(state.books, action.payload);
+    },
+    filteringBooks: (state, action) => {
+      console.log(filterBooks(state.books, action.payload))
+      state.filterBooks = filterBooks(state.books, action.payload);
     },
   },
   extraReducers: (builder) => {
@@ -31,6 +43,6 @@ const digitalBookSlice = createSlice({
   },
 });
 
-export const { getBookById } = digitalBookSlice.actions;
+export const { getBookById, filteringBooks } = digitalBookSlice.actions;
 
 export default digitalBookSlice.reducer;

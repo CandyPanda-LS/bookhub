@@ -66,16 +66,8 @@ function HomePageComponent() {
                 access to books to everyone, regardless of their financial or
                 physical limitations. With our platform, we strive to promote
                 learning and literacy for all. Our platform provides :
+                Access to books in the open domain, Access to past papers, Ability to donate stationary and books for the needful, Ability to Burrow and share books with friends
               </p>
-              <ul type="disc">
-                <li>Access to books in the open domain</li>
-                <li>Access to past papers</li>
-                <li>Ability to donate stationary and books for the needful</li>
-                <li>Ability to Burrow and share books with friends</li>
-                <li>
-                  Register today and get access to all the available features.
-                </li>
-              </ul>
             </div>
 
             {/* <!-- Numbered List --> */}
@@ -89,20 +81,20 @@ function HomePageComponent() {
                       01
                     </div>
                     <h3 className="text-base font-bold md:mb-4 md:hidden">
-                      Track company-wide progress
+                      
                     </h3>
                   </div>
                 </div>
 
                 <div>
                   <h3 className="hidden mb-4 text-lg font-bold md:block">
-                    Track company-wide progress
+                    Donate and Recieve Books
                   </h3>
                   <p className="text-darkGrayishBlue">
-                    See how your day-to-day tasks fit into the wider vision. Go
-                    from tracking progress at the milestone level all the way
-                    down to the smallest of details. Never lose sight of the
-                    bigger picture again.
+                  "BookHub" is a program that allows individuals to donate books in exchange for receiving books. This program helps to promote literacy and the sharing of knowledge while reducing waste by repurposing used books. It is a win-win situation for both the donor and the recipient as the donor gets to clear their space while the recipient gets to expand their library.
+
+
+
                   </p>
                 </div>
               </div>
@@ -116,19 +108,17 @@ function HomePageComponent() {
                       02
                     </div>
                     <h3 className="text-base font-bold md:mb-4 md:hidden">
-                      Advanced built-in reports
+                      Digital library
                     </h3>
                   </div>
                 </div>
 
                 <div>
                   <h3 className="hidden mb-4 text-lg font-bold md:block">
-                    Advanced built-in reports
+                  Digital library
                   </h3>
                   <p className="text-darkGrayishBlue">
-                    Set internal delivery estimates and track progress toward
-                    company goals. Our customisable dashboard helps you build
-                    out the reports you need to keep key stakeholders informed.
+                  A digital library that contains soft copies of books in the public domain is a collection of digitized books that are free for anyone to access, use, and distribute. These books are no longer under copyright protection and are available to be downloaded in electronic format. The purpose of a digital library of open-domain books is to provide access to knowledge and information to a wider audience, promoting education and learning opportunities.
                   </p>
                 </div>
               </div>
@@ -168,40 +158,34 @@ function HomePageComponent() {
           <div className="max-w-6xl px-5 mx-auto mt-32 text-center">
             {/* <!-- Heading --> */}
             <h2 className="text-4xl font-bold text-center">
-              What's Different About Manage?
+              Meet the team behind the project
             </h2>
             {/* <!-- Testimonials Container --> */}
             <div className="flex flex-col mt-24 md:flex-row md:space-x-6">
               {/* <!-- Testimonial 1 --> */}
               <div className="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/3">
-                <img src={avatarAnisha} className="w-16 -mt-14" alt="" />
-                <h5 className="text-lg font-bold">Anisha Li</h5>
+                <img src="https://scontent.fcmb2-2.fna.fbcdn.net/v/t39.30808-6/311304146_1826491177689758_7759219415339233677_n.jpg?stp=cp6_dst-jpg&_nc_cat=103&ccb=1-7&_nc_sid=174925&_nc_ohc=Jxp00mqXGXUAX8ViStW&_nc_ht=scontent.fcmb2-2.fna&oh=00_AfAatKBvwqVZkEXRRwLfVtS_a6BDjmd60cMU3YCBvwJF1Q&oe=63E6762C" className="w-16 -mt-14 rounded-full" alt="" />
+                <h5 className="text-lg font-bold">Shalika Pramod</h5>
                 <p className="text-sm text-darkGrayishBlue">
-                  “Manage has supercharged our team’s workflow. The ability to
-                  maintain visibility on larger milestones at all times keeps
-                  everyone motivated.”
+                "The good of a book donation project lies in its ability to promote literacy, share knowledge, and foster a love for reading, all while reducing waste and creating a positive impact on communities and individuals."
                 </p>
               </div>
 
               {/* <!-- Testimonial 2 --> */}
               <div className="hidden flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:flex md:w-1/3">
-                <img src={avatarAli} className="w-16 -mt-14" alt="" />
-                <h5 className="text-lg font-bold">Ali Bravo</h5>
+                <img src="https://scontent.fcmb2-2.fna.fbcdn.net/v/t39.30808-6/303116441_862583885126583_4062530546096845958_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=NLyVop0Et-4AX-98bgv&_nc_ht=scontent.fcmb2-2.fna&oh=00_AfDQcBoeAfHn10DMiyuOPYgEcgcdXDnl1F-MYGH_J1A4LQ&oe=63E66850" className="w-16 -mt-14 rounded-full" alt="" />
+                <h5 className="text-lg font-bold">Yasuri Wickramasinghe</h5>
                 <p className="text-sm text-darkGrayishBlue">
-                  “We have been able to cancel so many other subscriptions since
-                  using Manage. There is no more cross-channel confusion and
-                  everyone is much more focused.”
+                  "BookHub has the power to enrich lives and communities by promoting literacy, encouraging a love of learning, and providing access to knowledge and information to those who may not have had it otherwise."
                 </p>
               </div>
 
               {/* <!-- Testimonial 3 --> */}
               <div className="hidden flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:flex md:w-1/3">
-                <img src={avatarRichard} className="w-16 -mt-14" alt="" />
-                <h5 className="text-lg font-bold">Richard Watts</h5>
+                <img src="https://scontent.fcmb2-2.fna.fbcdn.net/v/t39.30808-1/322401289_1362493651173275_8919209046353325038_n.jpg?stp=cp6_dst-jpg_p320x320&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=bCbG9kK85FUAX9Ecg-L&_nc_ht=scontent.fcmb2-2.fna&oh=00_AfBFk9AaUd61YTb2gQ-mqP2EV6CtA1Ur_oleznFUbG9YYg&oe=63E6B120" className="w-16 -mt-14 rounded-full" alt="" />
+                <h5 className="text-lg font-bold">Lasal Hettiarachchi</h5>
                 <p className="text-sm text-darkGrayishBlue">
-                  “Manage has supercharged our team’s workflow. The ability to
-                  maintain visibility on larger milestones at all times keeps
-                  everyone motivated.”
+                  "Bookhub is a philanthropic endeavor that has the potential to improve lives and communities. By sharing the gift of knowledge and literature, it promotes education, creativity, and cultural understanding. Book donations can help build libraries, provide access to information for those in need, and promote literacy and lifelong learning."
                 </p>
               </div>
             </div>

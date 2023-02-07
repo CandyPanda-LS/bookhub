@@ -1,44 +1,61 @@
-
-import React,{useEffect} from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom'
-import { getBookById } from '../app/slices/digitalbook.slice';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { getBookById } from "../app/slices/digitalbook.slice";
 
 function DigitalLibrarySingleBookComponent() {
-    const {bookid} = useParams();
-    const dispatch = useDispatch();
-    const book = useSelector(state => state.digitalbook.book);
-    useEffect(()=>{
-        dispatch(getBookById(bookid));
-    },[dispatch])
-    return (
-        <div> <div class="container mx-auto p-10">
-            <div class="flex items-center justify-between">
-                <div>
-                    <button class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded transition duration-150 ease-in-out">Buy Now</button>
-                </div>
+  const { bookid } = useParams();
+  const dispatch = useDispatch();
+  const book = useSelector((state) => state.digitalbook.book);
+  useEffect(() => {
+    dispatch(getBookById(bookid));
+  }, [dispatch]);
+  return (
+    <div>
+      {" "}
+      <div class="container mx-auto p-10">
+        <div class="flex items-center justify-between">
+          <div>
+            <button class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded transition duration-150 ease-in-out">
+              Buy Now
+            </button>
+          </div>
+        </div>
+        {book && (
+          <div class="flex mt-2">
+            <div class="w-1/3 m-5 p-10 container bg-slate-100 rounded-md">
+              <h1 class="text-2xl font-bold text-gray-900 ">{book.title}</h1>
+              <div className="flex flex-col m-3 justify-center items-center">
+                <img
+                  class="shadow-lg rounded-lg w-64 "
+                  src="https://edit.org/images/cat/book-covers-big-2019101610.jpg"
+                  alt="Product Image"
+                />
+              </div>
+              <h2 class="text-md font-bold mb-2 text-gray-600 ">
+                {book.author}
+              </h2>
+              <p class="text-gray-700 mb-2">{book.description}</p>
+              <h3 class="text-lg font-bold mb-2 text-gray-900 text-left">
+                Features
+              </h3>
+              <ul class="list-disc pl-5">
+                <li class="text-gray-700 mb-2 text-left">Feature 1</li>
+                <li class="text-gray-700 mb-2 text-left">Feature 2</li>
+                <li class="text-gray-700 mb-2 text-left">Feature 3</li>
+              </ul>
             </div>
-            <div class="flex mt-2">
-                <div class="w-1/3 m-5 p-10 container bg-slate-100 rounded-md">
-                    <h1 class="text-2xl font-bold text-gray-900 ">{book.title}</h1>
-                    <div className='flex flex-col m-3 justify-center items-center'>
-                    <img class="shadow-lg rounded-lg w-64 " src="https://edit.org/images/cat/book-covers-big-2019101610.jpg" alt="Product Image" />
-                    </div>
-                    <h2 class="text-md font-bold mb-2 text-gray-600 ">{book.author}</h2>
-                    <p class="text-gray-700 mb-2">{book.description}</p>
-                    <h3 class="text-lg font-bold mb-2 text-gray-900 text-left">Features</h3>
-                    <ul class="list-disc pl-5">
-                        <li class="text-gray-700 mb-2 text-left">Feature 1</li>
-                        <li class="text-gray-700 mb-2 text-left">Feature 2</li>
-                        <li class="text-gray-700 mb-2 text-left">Feature 3</li>
-                    </ul>
-                </div>
-                <div class="w-2/3 m-5 rounded-lg">
-                    <iframe src="https://drive.google.com/file/d/1RvDUG6EYey8aDsRp-hDvd7Ct73RwY_Wa/preview" className='w-full h-full rounded-lg'></iframe>
-                </div>
+            <div class="w-2/3 m-5 rounded-lg">
+              <iframe
+                src="https://drive.google.com/file/d/1RvDUG6EYey8aDsRp-hDvd7Ct73RwY_Wa/preview"
+                className="w-full h-full rounded-lg"
+              ></iframe>
             </div>
-        </div></div>
-    )
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
 
-export default DigitalLibrarySingleBookComponent
+export default DigitalLibrarySingleBookComponent;

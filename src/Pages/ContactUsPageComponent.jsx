@@ -1,6 +1,20 @@
-import React from "react";
+import {React,useState} from "react";
 
 function ContactUsPageComponent() {
+  const [Name, setName] = useState()
+  const [Email, setEmail] = useState()
+  const [PhoneNumber, setPhoneNumber] = useState()
+  const [Message, setMessage] = useState()
+
+  const contactUsHandler = () =>{
+    const messageObj = {
+        Name,
+        Email,
+        PhoneNumber,
+        Message
+    }
+
+  }  
   return (
     <div className="m-5">
       <section
@@ -19,9 +33,11 @@ function ContactUsPageComponent() {
                   GET IN TOUCH WITH US
                 </h2>
                 <p className="text-body-color mb-9 text-base leading-relaxed">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eius tempor incididunt ut labore et dolore magna aliqua. Ut
-                  enim adiqua minim veniam quis nostrud exercitation ullamco
+                Bookhub is an online platform that enables to donate and share
+                books. We provide a platform for people to donate, share, and
+                explore books of all genres. Through our platform, you can
+                donate books to people in need, share books with other readers,
+                and explore a wide range of books from all around the world.
                 </p>
                 <div className="mb-8 flex w-full max-w-[370px]">
                   <div className="bg-primary text-primary mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-opacity-5 sm:h-[70px] sm:max-w-[70px]">
@@ -39,7 +55,7 @@ function ContactUsPageComponent() {
                       Our Location
                     </h4>
                     <p className="text-body-color text-base">
-                      99 S.t Jomblo Park Pekanbaru 28292. Indonesia
+                      Faculty of Science , University of Colombo.
                     </p>
                   </div>
                 </div>
@@ -61,7 +77,7 @@ function ContactUsPageComponent() {
                       Phone Number
                     </h4>
                     <p className="text-body-color text-base">
-                      (+62)81 414 257 9980
+                    +94 (76) 476 6549 - Yasuri
                     </p>
                   </div>
                 </div>
@@ -80,7 +96,7 @@ function ContactUsPageComponent() {
                     <h4 className="text-dark mb-1 text-xl font-bold">
                       Email Address
                     </h4>
-                    <p className="text-body-color text-base">info@yourdomain.com</p>
+                    <p className="text-body-color text-base">lasalshettiarachchi458@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -93,6 +109,8 @@ function ContactUsPageComponent() {
                       type="text"
                       placeholder="Your Name"
                       className="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
+                      onChange={(e) => setName(e.target.value)}
+
                     />
                   </div>
                   <div className="mb-6">
@@ -100,6 +118,8 @@ function ContactUsPageComponent() {
                       type="email"
                       placeholder="Your Email"
                       className="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
+                      onChange={(e) => setEmail(e.target.value)}
+
                     />
                   </div>
                   <div className="mb-6">
@@ -107,6 +127,8 @@ function ContactUsPageComponent() {
                       type="text"
                       placeholder="Your Phone"
                       className="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
+                      onChange={(e) => setPhoneNumber(e.target.value)}
+
                     />
                   </div>
                   <div className="mb-6">
@@ -114,6 +136,8 @@ function ContactUsPageComponent() {
                       rows="6"
                       placeholder="Your Message"
                       className="text-body-color border-[f0f0f0] focus:border-primary w-full resize-none rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
+                      onChange={(e) => setMessage(e.target.value)}
+
                     ></textarea>
                   </div>
                   <div>

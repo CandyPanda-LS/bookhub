@@ -3,6 +3,8 @@ import { BiSearchAlt } from "react-icons/bi";
 import PreviewSectionCardComponent from "../Components/PreviewSectionCardComponent";
 import PastPapersGallery from "../Components/PastPapersGallery";
 import DigitalBookGallery from "../Components/DigitalBooksGallery";
+import { useDispatch } from "react-redux";
+import { filteringBooks } from "../app/slices/digitalbook.slice";
 
 const sectionTypes = {
   DIGITAL_BOOKS: "DIGITAL_BOOKS",
@@ -11,6 +13,7 @@ const sectionTypes = {
 };
 
 function DigitalLibraryPageComponent() {
+  const dispatch = useDispatch();
   const [activeSection, setActiveSection] = useState(
     sectionTypes.DIGITAL_BOOKS
   );
@@ -35,23 +38,7 @@ function DigitalLibraryPageComponent() {
                   id="company-website"
                   className="block w-full flex-1 rounded-none border-gray-300 focus:border-brightRed focus:ring-brightRed sm:text-sm"
                   placeholder="Enter the name of the book..."
-                />
-                <span className="inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 px-3 text-gray-500">
-                  <BiSearchAlt />
-                </span>
-              </div>
-            </div>
-            <div className="md:w-1/4 hidden md:block">
-              <div className="mt-1 flex rounded-md shadow-sm">
-                <span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500">
-                  Search
-                </span>
-                <input
-                  type="text"
-                  name="company-website"
-                  id="company-website"
-                  className="block w-full flex-1 rounded-none border-gray-300 focus:border-brightRed focus:ring-brightRed sm:text-sm"
-                  placeholder="Enter the name of the book..."
+                  onChange={(e)=>dispatch(filteringBooks(e.target.value))}
                 />
                 <span className="inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 px-3 text-gray-500">
                   <BiSearchAlt />

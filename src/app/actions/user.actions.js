@@ -9,6 +9,14 @@ export const login = createAsyncThunk(
   }
 );
 
+export const register = createAsyncThunk(
+  "user/register",
+  async (userDetails) => {
+    const response = await USERAPI.register(userDetails);
+    return response.data;
+  }
+);
+
 export const getUser = createAsyncThunk(
   "user/getUser",
   async () => {
