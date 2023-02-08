@@ -11,7 +11,7 @@ const paperType = {
 
 export default function PastPapersGallery() {
   const dispatch = useDispatch();
-  const papers = useSelector((state) => state.paper.papers);
+  const papers = useSelector((state) => state.paper.filterPapers);
 
   useEffect(() => {
     dispatch(fetchAllPapers());

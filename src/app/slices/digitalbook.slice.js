@@ -29,7 +29,6 @@ const digitalBookSlice = createSlice({
       state.book = getBookByIdFunc(state.books, action.payload);
     },
     filteringBooks: (state, action) => {
-      console.log(filterBooks(state.books, action.payload));
       state.filterBooks = filterBooks(state.books, action.payload);
     },
   },

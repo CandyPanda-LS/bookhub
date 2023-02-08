@@ -5,6 +5,7 @@ import PastPapersGallery from '../Components/PastPapersGallery';
 import DigitalBookGallery from '../Components/DigitalBooksGallery';
 import { useDispatch } from 'react-redux';
 import { filteringBooks } from '../app/slices/digitalbook.slice';
+import { filteringPapers } from '../app/slices/paper.slice';
 
 const sectionTypes = {
   DIGITAL_BOOKS: 'DIGITAL_BOOKS',
@@ -30,14 +31,30 @@ function DigitalLibraryPageComponent() {
                 <span className='inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500'>
                   Search
                 </span>
-                <input
-                  type='text'
-                  name='company-website'
-                  id='company-website'
-                  className='block w-full flex-1 rounded-none border-gray-300 focus:border-brightRed focus:ring-brightRed sm:text-sm'
-                  placeholder='Enter the name of the book...'
-                  onChange={(e) => dispatch(filteringBooks(e.target.value))}
-                />
+                {activeSection === sectionTypes.DIGITAL_BOOKS && (
+                  <input
+                    type='text'
+                    name='company-website'
+                    id='company-website'
+                    className='block w-full flex-1 rounded-none border-gray-300 focus:border-brightRed focus:ring-brightRed sm:text-sm'
+                    placeholder='Enter the name of the book...'
+                    onChange={(e) => {
+                      dispatch(filteringBooks(e.target.value));
+                    }}
+                  />
+                )}
+                {activeSection === sectionTypes.PAST_PAPERS && (
+                  <input
+                    type='text'
+                    name='company-website'
+                    id='company-website'
+                    className='block w-full flex-1 rounded-none border-gray-300 focus:border-brightRed focus:ring-brightRed sm:text-sm'
+                    placeholder='Enter the name of the book...'
+                    onChange={(e) => {
+                      dispatch(filteringPapers(e.target.value));
+                    }}
+                  />
+                )}
                 <span className='inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 px-3 text-gray-500'>
                   <BiSearchAlt />
                 </span>
