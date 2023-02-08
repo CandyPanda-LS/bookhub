@@ -146,12 +146,32 @@ function BookBurrowPageComponent() {
                           )}
                         </td>
                         <td className='flex items-center px-6 py-4 space-x-3'>
-                          <button
-                            className='font-medium text-red-600 dark:text-red-500 hover:underline'
-                            onClick={() => handleOnRequest(book.id)}
-                          >
-                            Request
-                          </button>
+                          {book.status === 'BORROWED' && (
+                            <button
+                              className='bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center'
+                              onClick={() => handleOnRequest(book.id)}
+                              disabled
+                            >
+                              Request
+                            </button>
+                          )}
+                          {book.status === 'PENDING' && (
+                            <button
+                              className='bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center'
+                              onClick={() => handleOnRequest(book.id)}
+                              disabled
+                            >
+                              Request
+                            </button>
+                          )}
+                          {book.status === 'AVAILABLE' && (
+                            <button
+                              className='bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded'
+                              onClick={() => handleOnRequest(book.id)}
+                            >
+                              Request
+                            </button>
+                          )}
                         </td>
                       </tr>
                     );
