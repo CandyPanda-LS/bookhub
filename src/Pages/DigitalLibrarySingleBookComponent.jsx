@@ -9,7 +9,7 @@ function DigitalLibrarySingleBookComponent() {
   const book = useSelector((state) => state.digitalbook.book);
   useEffect(() => {
     dispatch(getBookById(bookid));
-  }, [dispatch,bookid]);
+  }, [dispatch, bookid]);
   return (
     <div>
       {' '}
@@ -43,7 +43,7 @@ function DigitalLibrarySingleBookComponent() {
             </div>
             <div class='w-2/3 m-5 rounded-lg'>
               <iframe
-                title="PDF Viewer"
+                title='PDF Viewer'
                 src='https://drive.google.com/file/d/1RvDUG6EYey8aDsRp-hDvd7Ct73RwY_Wa/preview'
                 className='w-full h-full rounded-lg'
               ></iframe>

@@ -10,7 +10,7 @@ function LoginPageComponent() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const dispatch = useDispatch();
-  const loginStatus = useSelector(state => state.user.loginStatus);
+  const loginStatus = useSelector((state) => state.user.loginStatus);
 
   useEffect(() => {
     if (loginStatus) {

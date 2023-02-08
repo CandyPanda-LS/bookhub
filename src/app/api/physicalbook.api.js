@@ -14,7 +14,11 @@ export const PHYSICALBOOKAPI = {
   donatePhysicalBook: (newBook) =>
     axios.post(`${BASE_URL}/api/book/donatebook`, newBook, requestConfigJson),
   requestPhysicalBook: (bookId) =>
-    axios.post(`${BASE_URL}/api/book/physicalbook/borrowrequest/${bookId}`, null, requestConfigJson),
+    axios.post(
+      `${BASE_URL}/api/book/physicalbook/borrowrequest/${bookId}`,
+      null,
+      requestConfigJson,
+    ),
   approvePhysicalBookRequest: (bookId) =>
     axios.post(`${BASE_URL}/api/book/physicalbook/approve/${bookId}`),
   //   deletePost: (postId) =>
