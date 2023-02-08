@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getBookById } from '../app/slices/digitalbook.slice';
 
-function DigitalLibrarySingleBookComponent() {
+function DigitalLibrarySingleDigitalBookComponent() {
   const { bookid } = useParams();
   const dispatch = useDispatch();
   const book = useSelector((state) => state.digitalbook.book);
@@ -55,4 +55,4 @@ function DigitalLibrarySingleBookComponent() {
   );
 }
 
-export default DigitalLibrarySingleBookComponent;
+export default DigitalLibrarySingleDigitalBookComponent;

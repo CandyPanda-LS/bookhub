@@ -10,7 +10,7 @@ import HomePageComponent from '../Pages/HomePageComponent';
 import LoginPageComponent from '../Pages/LoginPageComponent';
 import RegistrationPageComponent from '../Pages/RegistrationPageComponent';
 import DigitalLibraryPageComponent from '../Pages/DigitalLibraryPageComponent';
-import DigitalLibrarySingleBookComponent from '../Pages/DigitalLibrarySingleBookComponent';
+import DigitalLibrarySingleDigitalBookComponent from '../Pages/DigitalLibrarySingleDigitalBookComponent';
 import ContactUsPageComponent from '../Pages/ContactUsPageComponent';
 import ProfilePageComponent from '../Pages/ProfilePageComponent';
 import BookDonationPageComponent from '../Pages/BookDonationPageComponent';
@@ -29,8 +29,8 @@ function RouteComponent() {
           <Route path='/register' element={<RegistrationPageComponent />} />
           <Route path='/digital-library' element={<DigitalLibraryPageComponent />} />
           <Route
-            path='/digital-library-singlebook/:bookid'
-            element={<DigitalLibrarySingleBookComponent />}
+            path='/digitalbook/:bookid'
+            element={<DigitalLibrarySingleDigitalBookComponent />}
           />
           <Route
             path='/audiobook/:bookid'
