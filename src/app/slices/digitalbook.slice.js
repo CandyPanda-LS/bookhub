@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { fetchAllBooks } from "../actions/digitalbook.action";
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchAllBooks } from '../actions/digitalbook.action';
 
 const getBookByIdFunc = (bookList, bookId) => {
   const result = bookList.filter(function (el) {
@@ -17,11 +17,11 @@ const filterBooks = (bookList, searchWord) => {
 };
 
 const digitalBookSlice = createSlice({
-  name: "digitalbook",
+  name: 'digitalbook',
   initialState: {
     books: [],
     book: null,
-    status: "success",
+    status: 'success',
     filterBooks: [],
   },
   reducers: {
@@ -39,7 +39,7 @@ const digitalBookSlice = createSlice({
       // Add user to the state array
       state.books = action.payload;
       state.filterBooks = action.payload;
-      state.status = "success";
+      state.status = 'success';
     });
   },
 });

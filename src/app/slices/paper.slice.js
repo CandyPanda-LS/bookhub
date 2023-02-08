@@ -1,11 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { fetchAllPapers } from "../actions/paper.action";
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchAllPapers } from '../actions/paper.action';
 
 const paperSlice = createSlice({
-  name: "paper",
+  name: 'paper',
   initialState: {
     papers: [],
-    status:"success"
+    status: 'success',
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -13,7 +13,7 @@ const paperSlice = createSlice({
     builder.addCase(fetchAllPapers.fulfilled, (state, action) => {
       // Add user to the state array
       state.papers = action.payload;
-      state.status = "success";
+      state.status = 'success';
     });
   },
 });

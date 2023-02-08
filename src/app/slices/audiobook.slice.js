@@ -1,11 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { fetchAllBooks } from "../actions/audiobook.action";
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchAllBooks } from '../actions/audiobook.action';
 
 const audiobookSlice = createSlice({
-  name: "audiobook",
+  name: 'audiobook',
   initialState: {
     audiobooks: [],
-    status:"success"
+    status: 'success',
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -13,7 +13,7 @@ const audiobookSlice = createSlice({
     builder.addCase(fetchAllBooks.fulfilled, (state, action) => {
       // Add user to the state array
       state.audiobooks = action.payload;
-      state.status = "success";
+      state.status = 'success';
     });
   },
 });

@@ -1,10 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { addMessage } from "../actions/contactus.action";
+import { createSlice } from '@reduxjs/toolkit';
+import { addMessage } from '../actions/contactus.action';
 
 const contactUsSlice = createSlice({
-  name: "contactUs",
+  name: 'contactUs',
   initialState: {
-    status: "success",
+    status: 'success',
   },
   reducers: {},
   extraReducers: (builder) => {

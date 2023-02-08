@@ -1,16 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { getUser, login, register } from "../actions/user.actions";
+import { createSlice } from '@reduxjs/toolkit';
+import { getUser, login, register } from '../actions/user.actions';
 
 const userSlice = createSlice({
-  name: "user",
+  name: 'user',
   initialState: {
     user: null,
     loginStatus: false,
   },
   reducers: {
     logout: (state) => {
-      window.location.href = "/login"
-      localStorage.removeItem("Authorization");
+      window.location.href = '/login';
+      localStorage.removeItem('Authorization');
       state.user = null;
       state.loginStatus = false;
     },
@@ -21,15 +21,15 @@ const userSlice = createSlice({
       // Add user to the state array
       state.user = action.payload;
       state.loginStatus = true;
-      localStorage.setItem("Role", action.payload.roles[0]);
-      localStorage.setItem("Authorization", action.payload.accessToken);
-      window.location.href = "/"
+      localStorage.setItem('Role', action.payload.roles[0]);
+      localStorage.setItem('Authorization', action.payload.accessToken);
+      window.location.href = '/';
     });
     builder.addCase(register.fulfilled, (state, action) => {
       // Add user to the state array
-      localStorage.removeItem("Authorization");
-      localStorage.removeItem("Role");
-      window.location.href = "/login"
+      localStorage.removeItem('Authorization');
+      localStorage.removeItem('Role');
+      window.location.href = '/login';
     });
     builder.addCase(getUser.fulfilled, (state, action) => {
       // Add user to the state array
@@ -39,6 +39,6 @@ const userSlice = createSlice({
   },
 });
 
-export const {logout} = userSlice.actions;
+export const { logout } = userSlice.actions;
 
 export default userSlice.reducer;
