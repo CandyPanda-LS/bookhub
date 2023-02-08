@@ -1,8 +1,5 @@
 import React from 'react';
 import illustration from '../assets/illustration.png';
-import avatarAnisha from '../assets/avatar-anisha.png';
-import avatarAli from '../assets/avatar-ali.png';
-import avatarRichard from '../assets/avatar-richard.png';
 
 function HomePageComponent() {
   return (
@@ -70,7 +67,6 @@ function HomePageComponent() {
                 <div className='rounded-l-full bg-brightRedSupLight md:bg-transparent'>
                   <div className='flex items-center space-x-2'>
                     <div className='px-4 py-2 text-white rounded-full md:py-1 bg-brightRed'>01</div>
-                    <h3 className='text-base font-bold md:mb-4 md:hidden'></h3>
                   </div>
                 </div>
 

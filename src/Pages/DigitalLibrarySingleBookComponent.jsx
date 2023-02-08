@@ -9,7 +9,7 @@ function DigitalLibrarySingleBookComponent() {
   const book = useSelector((state) => state.digitalbook.book);
   useEffect(() => {
     dispatch(getBookById(bookid));
-  }, [dispatch]);
+  }, [dispatch,bookid]);
   return (
     <div>
       {' '}
@@ -29,7 +29,7 @@ function DigitalLibrarySingleBookComponent() {
                 <img
                   class='shadow-lg rounded-lg w-64 '
                   src='https://edit.org/images/cat/book-covers-big-2019101610.jpg'
-                  alt='Product Image'
+                  alt='Product Cover'
                 />
               </div>
               <h2 class='text-md font-bold mb-2 text-gray-600 '>{book.author}</h2>
@@ -43,6 +43,7 @@ function DigitalLibrarySingleBookComponent() {
             </div>
             <div class='w-2/3 m-5 rounded-lg'>
               <iframe
+                title="PDF Viewer"
                 src='https://drive.google.com/file/d/1RvDUG6EYey8aDsRp-hDvd7Ct73RwY_Wa/preview'
                 className='w-full h-full rounded-lg'
               ></iframe>

@@ -14,7 +14,7 @@ function NavbarComponent() {
     if (localStorage.getItem('Authorization')) {
       dispatch(getUser());
     }
-  }, [userState.loginStatus]);
+  }, [dispatch, userState.loginStatus]);
 
   return (
     <div>
