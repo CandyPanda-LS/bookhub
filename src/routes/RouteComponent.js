@@ -15,6 +15,7 @@ import ContactUsPageComponent from '../Pages/ContactUsPageComponent';
 import ProfilePageComponent from '../Pages/ProfilePageComponent';
 import BookDonationPageComponent from '../Pages/BookDonationPageComponent';
 import BookBurrowPageComponent from '../Pages/BookBurrowPageComponent';
+import DigitalLibrarySingleAudioBookPage from '../Pages/DigitalLibrarySingleAudioBookPage';
 
 function RouteComponent() {
   return (
@@ -30,6 +31,10 @@ function RouteComponent() {
           <Route
             path='/digital-library-singlebook/:bookid'
             element={<DigitalLibrarySingleBookComponent />}
+          />
+          <Route
+            path='/audiobook/:bookid'
+            element={<DigitalLibrarySingleAudioBookPage />}
           />
           <Route path='/contact-us' element={<ContactUsPageComponent />} />
           <Route path='/profile' element={<ProfilePageComponent />} />
