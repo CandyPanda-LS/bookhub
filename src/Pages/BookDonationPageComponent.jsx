@@ -1,10 +1,12 @@
 import { React } from 'react';
+import { useSelector } from 'react-redux';
 import regBannerImg from '../assets/regBannerImg.png';
 import AudioBookDonationComponent from '../Components/DonationComponents/AudioBookDonationComponent';
 import DigitalBookDonationComponent from '../Components/DonationComponents/DigitalBookDonationComponent';
 import PhysicalBookDonationComponent from '../Components/DonationComponents/PhysicalBookDonationComponent';
 
 function BookDonationPageComponent() {
+  const user = useSelector((state) => state.user.user);
   return (
     <div>
       <section id='hero'>
@@ -43,22 +45,31 @@ function BookDonationPageComponent() {
       </section>
       <section id='DonationForm' className='p-5'>
         <div className='container shadow rounded-xl border-2 borer-grey'>
-          <div className='hidden sm:block' aria-hidden='true'>
-            <div className='py-5'></div>
-          </div>
-          <PhysicalBookDonationComponent />
-          <div className='hidden sm:block' aria-hidden='true'>
-            <div className='py-5'>
-              <div className='border-t border-gray-200'></div>
-            </div>
-          </div>
-          <AudioBookDonationComponent />
-          <div className='hidden sm:block' aria-hidden='true'>
-            <div className='py-5'>
-              <div className='border-t border-gray-200'></div>
-            </div>
-          </div>
-          <DigitalBookDonationComponent />
+          {user.role === 'user' && (
+            <>
+              <div className='hidden sm:block' aria-hidden='true'>
+                <div className='py-5'></div>
+              </div>
+              <PhysicalBookDonationComponent />
+            </>
+          )}
+
+          {user.role === 'admin' && (
+            <>
+              <div className='hidden sm:block' aria-hidden='true'>
+                <div className='py-5'>
+                  <div className='border-t border-gray-200'></div>
+                </div>
+              </div>
+              <AudioBookDonationComponent />
+              <div className='hidden sm:block' aria-hidden='true'>
+                <div className='py-5'>
+                  <div className='border-t border-gray-200'></div>
+                </div>
+              </div>
+              <DigitalBookDonationComponent />
+            </>
+          )}
         </div>
       </section>
     </div>

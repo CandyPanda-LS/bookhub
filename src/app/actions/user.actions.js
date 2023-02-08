@@ -15,3 +15,8 @@ export const getUser = createAsyncThunk('user/getUser', async () => {
   const response = await USERAPI.getUser();
   return response.data;
 });
+
+export const getAdmin = createAsyncThunk('user/getUser', async () => {
+  const response = await USERAPI.getAdmin();
+  return response.data;
+});

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import logo from '../assets/logo.svg';
-import { getUser } from '../app/actions/user.actions';
+import { getAdmin, getUser } from '../app/actions/user.actions';
 import { logout } from '../app/slices/user.slice';
 import { Link } from 'react-router-dom';
 import UserIcon from '../assets/user-icon.png';
@@ -11,8 +11,19 @@ function NavbarComponent() {
   const userState = useSelector((state) => state.user);
 
   useEffect(() => {
-    if (localStorage.getItem('Authorization')) {
+    if (
+      localStorage.getItem('Authorization') &&
+      localStorage.getItem('Role') &&
+      localStorage.getItem('Role') === 'ROLE_USER'
+    ) {
       dispatch(getUser());
+    }
+    if (
+      localStorage.getItem('Authorization') &&
+      localStorage.getItem('Role') &&
+      localStorage.getItem('Role') === 'ROLE_ADMIN'
+    ) {
+      dispatch(getAdmin());
     }
   }, [dispatch, userState.loginStatus]);
 
@@ -35,14 +46,18 @@ function NavbarComponent() {
                 <Link to='/donate' className='hover:text-darkGrayishBlue'>
                   DONATE
                 </Link>
-                <Link to='/burrow' className='hover:text-darkGrayishBlue'>
-                  BORROW
-                </Link>
+                {userState.user?.role === 'user' && (
+                  <Link to='/burrow' className='hover:text-darkGrayishBlue'>
+                    BORROW
+                  </Link>
+                )}
               </>
             )}
+
             <Link to='/contact-us' className='hover:text-darkGrayishBlue'>
               CONTACT US
             </Link>
+
             <Link to='/digital-library' className='hover:text-darkGrayishBlue'>
               DIGITAL LIBRARY
             </Link>
@@ -70,13 +85,18 @@ function NavbarComponent() {
           {userState && userState.loginStatus && (
             <div className='md:flex space-x-2'>
               <p className='hidden md:block mt-3'>{userState.user.fullName}</p>
-              <Link to='/profile' className='hidden md:block'>
-                <img
-                  className='w-12 h-12 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500'
-                  src={userState.user.profileImageLink ? userState.user.profileImageLink : UserIcon}
-                  alt='Bordered avatar'
-                />
-              </Link>
+              {userState.user?.role === 'user' && (
+                <Link to='/profile' className='hidden md:block'>
+                  <img
+                    className='w-12 h-12 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500'
+                    src={
+                      userState.user.profileImageLink ? userState.user.profileImageLink : UserIcon
+                    }
+                    alt='Bordered avatar'
+                  />
+                </Link>
+              )}
+
               <button
                 onClick={() => dispatch(logout())}
                 className='hidden  p-3 px-6 text-white bg-brightRed rounded-md baseline hover:bg-brightRedLight md:block'

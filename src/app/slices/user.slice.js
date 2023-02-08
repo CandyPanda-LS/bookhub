@@ -11,6 +11,7 @@ const userSlice = createSlice({
     logout: (state) => {
       window.location.href = '/login';
       localStorage.removeItem('Authorization');
+      localStorage.removeItem('Role');
       state.user = null;
       state.loginStatus = false;
     },
