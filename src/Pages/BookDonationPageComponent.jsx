@@ -45,7 +45,7 @@ function BookDonationPageComponent() {
       </section>
       <section id='DonationForm' className='p-5'>
         <div className='container shadow rounded-xl border-2 borer-grey'>
-          {user.role === 'user' && (
+          {user?.role === 'user' && (
             <>
               <div className='hidden sm:block' aria-hidden='true'>
                 <div className='py-5'></div>
@@ -54,7 +54,7 @@ function BookDonationPageComponent() {
             </>
           )}
 
-          {user.role === 'admin' && (
+          {user?.role === 'admin' && (
             <>
               <div className='hidden sm:block' aria-hidden='true'>
                 <div className='py-5'>

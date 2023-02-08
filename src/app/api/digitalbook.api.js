@@ -11,5 +11,6 @@ const requestConfigJson = {
 
 export const DIGITALBOOKAPI = {
   fetchAllBooks: () => axios.get(`${BASE_URL}/api/book/digitalbook/all`),
-  saveDigitalBooks: (newBook) => axios.post(`${BASE_URL}/api/book/digitalbook`, newBook, requestConfigJson),
+  saveDigitalBooks: (newBook) =>
+    axios.post(`${BASE_URL}/api/book/digitalbook`, newBook, requestConfigJson),
 };

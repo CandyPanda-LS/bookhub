@@ -30,7 +30,7 @@ function DigitalLibrarySingleAudioBookPage() {
               <div className='flex flex-col m-3 justify-center items-center'>
                 <iframe
                   title='PDF Viewer'
-                  src='https://drive.google.com/file/d/13n83VPO8FxuPxLmhapEBc4YYcaoB1o16/preview'
+                  src={book.audioLink}
                   className='w-full h-full rounded-lg'
                 ></iframe>
               </div>

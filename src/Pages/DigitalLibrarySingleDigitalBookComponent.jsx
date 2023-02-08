@@ -44,7 +44,7 @@ function DigitalLibrarySingleDigitalBookComponent() {
             <div class='w-2/3 m-5 rounded-lg'>
               <iframe
                 title='PDF Viewer'
-                src='https://drive.google.com/file/d/1RvDUG6EYey8aDsRp-hDvd7Ct73RwY_Wa/preview'
+                src={book.pdfLink}
                 className='w-full h-full rounded-lg'
               ></iframe>
             </div>
