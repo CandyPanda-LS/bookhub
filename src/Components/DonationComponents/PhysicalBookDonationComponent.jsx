@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { React, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { donatePhysicalBook } from '../../app/actions/physicalbook.action';
@@ -6,7 +7,7 @@ import { pendingPhysicalBookStatus } from '../../app/slices/physicalbook.slice';
 function PhysicalBookDonationComponent() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
-  const status = useSelector((state) => state.digitalbook.status);
+  const status = useSelector((state) => state.physicalbook.status);
   const [title, settitle] = useState();
   const [author, setauthor] = useState();
   const [genre, setgenre] = useState();
@@ -14,9 +15,20 @@ function PhysicalBookDonationComponent() {
   const [publisher, setpublisher] = useState();
   const [edition, setedition] = useState();
 
+  useEffect(() => {
+    if (status === 'success') {
+      settitle('');
+      setauthor('');
+      setgenre('');
+      setdescription('');
+      setpublisher('');
+      setedition('');
+    }
+  }, [status]);
+
   const onHandleSubmit = (e) => {
     e.preventDefault();
-    dispatch(pendingPhysicalBookStatus())
+    dispatch(pendingPhysicalBookStatus());
     const donatedBook = {
       title,
       author,
@@ -27,13 +39,6 @@ function PhysicalBookDonationComponent() {
       donatedBy: user.fullName,
     };
     dispatch(donatePhysicalBook(donatedBook));
-
-    settitle('');
-    setauthor('');
-    setgenre('');
-    setdescription('');
-    setpublisher('');
-    setedition('');
   };
   return (
     <div className='mt-10 sm:mt-0'>
@@ -179,7 +184,7 @@ function PhysicalBookDonationComponent() {
                 </div>
               </div>
               <div className='bg-gray-50 px-4 py-3 text-right sm:px-6'>
-              {status === 'pending' ? (
+                {status === 'pending' ? (
                   <button
                     type='submit'
                     className='inline-flex justify-center rounded-md border border-transparent bg-amber-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'

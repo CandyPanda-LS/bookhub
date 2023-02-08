@@ -6,7 +6,7 @@ import { pendingAudioBookStatus } from '../../app/slices/audiobook.slice';
 
 function AudioBookDonationComponent() {
   const dispatch = useDispatch();
-  const status = useSelector(state => state.audiobook.status)
+  const status = useSelector((state) => state.audiobook.status);
   //Audio books
   const [title, settitle] = useState();
   const [author, setauthor] = useState();
@@ -16,21 +16,21 @@ function AudioBookDonationComponent() {
   const [edition, setedition] = useState();
   const [audioLink, setaudioLink] = useState();
 
-  useEffect(()=>{
-    if(status === "success"){
+  useEffect(() => {
+    if (status === 'success') {
       settitle('');
       setauthor('');
       setgenre('');
       setdescription('');
       setpublisher('');
       setedition('');
-      setaudioLink('')
+      setaudioLink('');
     }
-  },[status])
+  }, [status]);
 
   const onHandleSubmit = (e) => {
     e.preventDefault();
-    dispatch(pendingAudioBookStatus())
+    dispatch(pendingAudioBookStatus());
     const audioBook = {
       title,
       author,
@@ -42,9 +42,6 @@ function AudioBookDonationComponent() {
     };
 
     dispatch(saveAudioBook(audioBook));
-
-
-
   };
   return (
     <div>

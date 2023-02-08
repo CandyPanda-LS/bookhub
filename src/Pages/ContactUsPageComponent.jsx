@@ -1,18 +1,37 @@
+import { useEffect } from 'react';
 import { React, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { sendMessage } from '../app/actions/contactus.action';
+import { pendingEmailStatus } from '../app/slices/contactus.slice';
 
 function ContactUsPageComponent() {
-  const [Name, setName] = useState();
-  const [Email, setEmail] = useState();
-  const [PhoneNumber, setPhoneNumber] = useState();
-  const [Message, setMessage] = useState();
+  const dispatch = useDispatch();
+  const status = useSelector((state) => state.contactus.status);
 
-  const contactUsHandler = () => {
-    const messageObj = {
-      Name,
-      Email,
-      PhoneNumber,
-      Message,
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [contactNumber, setPhoneNumber] = useState();
+  const [message, setMessage] = useState();
+
+  useEffect(() => {
+    if (status === 'success') {
+      setEmail('');
+      setMessage('');
+      setPhoneNumber('');
+      setName('');
+    }
+  }, [status]);
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    dispatch(pendingEmailStatus());
+    const newEmail = {
+      name,
+      email,
+      contactNumber,
+      message,
     };
+    dispatch(sendMessage(newEmail));
   };
   return (
     <div className='m-5'>
@@ -76,13 +95,15 @@ function ContactUsPageComponent() {
             </div>
             <div className='w-full px-4 lg:w-1/2 xl:w-5/12'>
               <div className='relative rounded-lg bg-white p-8 shadow-lg sm:p-12'>
-                <form>
+                <form onSubmit={onSubmitHandler}>
                   <div className='mb-6'>
                     <input
                       type='text'
                       placeholder='Your Name'
                       className='text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none'
                       onChange={(e) => setName(e.target.value)}
+                      value={name}
+                      required
                     />
                   </div>
                   <div className='mb-6'>
@@ -91,6 +112,8 @@ function ContactUsPageComponent() {
                       placeholder='Your Email'
                       className='text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none'
                       onChange={(e) => setEmail(e.target.value)}
+                      value={email}
+                      required
                     />
                   </div>
                   <div className='mb-6'>
@@ -99,6 +122,8 @@ function ContactUsPageComponent() {
                       placeholder='Your Phone'
                       className='text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none'
                       onChange={(e) => setPhoneNumber(e.target.value)}
+                      value={contactNumber}
+                      required
                     />
                   </div>
                   <div className='mb-6'>
@@ -107,15 +132,27 @@ function ContactUsPageComponent() {
                       placeholder='Your Message'
                       className='text-body-color border-[f0f0f0] focus:border-primary w-full resize-none rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none'
                       onChange={(e) => setMessage(e.target.value)}
+                      value={message}
+                      required
                     ></textarea>
                   </div>
                   <div>
-                    <button
-                      type='submit'
-                      className='bg-brightRed border-primary w-full rounded border p-3 text-white transition hover:bg-opacity-90'
-                    >
-                      Send Message
-                    </button>
+                    {status === 'pending' ? (
+                      <button
+                        type='submit'
+                        className='bg-amber-500 border-primary w-full rounded border p-3 text-white transition hover:bg-opacity-90'
+                        disabled
+                      >
+                        Sending....
+                      </button>
+                    ) : (
+                      <button
+                        type='submit'
+                        className='bg-brightRed border-primary w-full rounded border p-3 text-white transition hover:bg-opacity-90'
+                      >
+                        Send
+                      </button>
+                    )}
                   </div>
                 </form>
                 <div>

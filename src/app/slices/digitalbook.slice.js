@@ -26,7 +26,7 @@ const digitalBookSlice = createSlice({
     filterBooks: [],
   },
   reducers: {
-    pendingDigitalBookStatus:(state) => {
+    pendingDigitalBookStatus: (state) => {
       state.status = 'pending';
     },
     getBookById: (state, action) => {
@@ -54,6 +54,7 @@ const digitalBookSlice = createSlice({
   },
 });
 
-export const { getBookById, filteringDigitalBooks, pendingDigitalBookStatus } = digitalBookSlice.actions;
+export const { getBookById, filteringDigitalBooks, pendingDigitalBookStatus } =
+  digitalBookSlice.actions;
 
 export default digitalBookSlice.reducer;

@@ -26,7 +26,7 @@ const audiobookSlice = createSlice({
     status: 'success',
   },
   reducers: {
-    pendingAudioBookStatus:(state) => {
+    pendingAudioBookStatus: (state) => {
       state.status = 'pending';
     },
     getBookById: (state, action) => {
