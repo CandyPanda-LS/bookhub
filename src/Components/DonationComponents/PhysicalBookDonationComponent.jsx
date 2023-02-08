@@ -1,10 +1,12 @@
 import { React, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { donatePhysicalBook } from '../../app/actions/physicalbook.action';
+import { pendingPhysicalBookStatus } from '../../app/slices/physicalbook.slice';
 
 function PhysicalBookDonationComponent() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
+  const status = useSelector((state) => state.digitalbook.status);
   const [title, settitle] = useState();
   const [author, setauthor] = useState();
   const [genre, setgenre] = useState();
@@ -14,6 +16,7 @@ function PhysicalBookDonationComponent() {
 
   const onHandleSubmit = (e) => {
     e.preventDefault();
+    dispatch(pendingPhysicalBookStatus())
     const donatedBook = {
       title,
       author,
@@ -47,7 +50,7 @@ function PhysicalBookDonationComponent() {
         </div>
 
         <div className='mt-5 md:col-span-2 md:mt-0'>
-          <form action='#' method='POST'>
+          <form onSubmit={onHandleSubmit}>
             <div className='overflow-hidden shadow sm:rounded-md'>
               <div className='bg-white px-4 py-5 sm:p-6'>
                 <div className='grid grid-cols-6 gap-6'>
@@ -176,12 +179,22 @@ function PhysicalBookDonationComponent() {
                 </div>
               </div>
               <div className='bg-gray-50 px-4 py-3 text-right sm:px-6'>
-                <button
-                  className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
-                  onClick={onHandleSubmit}
-                >
-                  Save
-                </button>
+              {status === 'pending' ? (
+                  <button
+                    type='submit'
+                    className='inline-flex justify-center rounded-md border border-transparent bg-amber-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+                    disabled
+                  >
+                    Saving....
+                  </button>
+                ) : (
+                  <button
+                    type='submit'
+                    className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+                  >
+                    Save
+                  </button>
+                )}
               </div>
             </div>
           </form>

@@ -1,11 +1,13 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import { storage } from '../../firebase';
 import { ProgressBar } from 'react-loader-spinner';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { saveDigitalBook } from '../../app/actions/digitalbook.action';
+import { pendingDigitalBookStatus } from '../../app/slices/digitalbook.slice';
 
 function DigitalBookDonationComponent() {
   const dispatch = useDispatch();
+  const status = useSelector((state) => state.digitalbook.status);
   //Digital books
   const [title, setTitle] = useState();
   const [author, setAuthor] = useState();
@@ -16,6 +18,18 @@ function DigitalBookDonationComponent() {
   const [pdfLink, setPdfLink] = useState();
   const [coverImage, setCoverImage] = useState();
   const [uploadPercentage, setUploadPercentage] = useState(0);
+
+  useEffect(() => {
+    if (status === 'success') {
+      setTitle('');
+      setAuthor('');
+      setGenre('');
+      setDescription('');
+      setPublisher('');
+      setEdition('');
+      setCoverImage('');
+    }
+  }, [status]);
 
   const uploadImage = (e) => {
     if (e.target.files[0] !== null) {
@@ -50,6 +64,7 @@ function DigitalBookDonationComponent() {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
+    dispatch(pendingDigitalBookStatus());
     const digitalBook = {
       title,
       author,
@@ -60,13 +75,6 @@ function DigitalBookDonationComponent() {
       pdfLink,
       coverImage,
     };
-    setTitle('');
-    setAuthor('');
-    setGenre('');
-    setDescription('');
-    setPublisher('');
-    setEdition('');
-    setCoverImage('');
     dispatch(saveDigitalBook(digitalBook));
   };
   return (
@@ -74,9 +82,7 @@ function DigitalBookDonationComponent() {
       <div className='md:grid md:grid-cols-3 md:gap-6'>
         <div className='md:col-span-1'>
           <div className='px-4 sm:px-0'>
-            <h3 className='text-lg font-medium leading-6 text-gray-900'>
-              Digital Book
-            </h3>
+            <h3 className='text-lg font-medium leading-6 text-gray-900'>Digital Book</h3>
             <p className='mt-1 text-sm text-gray-600'>
               Please provide correct information of the book that you are willing to donate
             </p>
@@ -287,12 +293,22 @@ function DigitalBookDonationComponent() {
                 </div>
               </div>
               <div className='bg-gray-50 px-4 py-3 text-right sm:px-6'>
-                <button
-                  type='submit'
-                  className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
-                >
-                  Save
-                </button>
+                {status === 'pending' ? (
+                  <button
+                    type='submit'
+                    className='inline-flex justify-center rounded-md border border-transparent bg-amber-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+                    disabled
+                  >
+                    Saving....
+                  </button>
+                ) : (
+                  <button
+                    type='submit'
+                    className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+                  >
+                    Save
+                  </button>
+                )}
               </div>
             </div>
           </form>

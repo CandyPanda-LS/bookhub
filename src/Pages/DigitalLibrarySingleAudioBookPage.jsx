@@ -38,9 +38,9 @@ function DigitalLibrarySingleAudioBookPage() {
               <p class='text-gray-700 mb-2'>{book.description}</p>
               <h3 class='text-lg font-bold mb-2 text-gray-900 text-left'>Features</h3>
               <ul class='list-disc pl-5'>
-                <li class='text-gray-700 mb-2 text-left'>Feature 1</li>
-                <li class='text-gray-700 mb-2 text-left'>Feature 2</li>
-                <li class='text-gray-700 mb-2 text-left'>Feature 3</li>
+                <li class='text-gray-700 mb-2 text-left'>book genre:{book.genre}</li>
+                <li class='text-gray-700 mb-2 text-left'>book publisher: {book.publisher}</li>
+                <li class='text-gray-700 mb-2 text-left'>book edition: {book.edition}</li>
               </ul>
             </div>
           </div>

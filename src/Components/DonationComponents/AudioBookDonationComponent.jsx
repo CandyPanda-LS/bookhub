@@ -1,9 +1,12 @@
+import { useEffect } from 'react';
 import { React, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { saveAudioBook } from '../../app/actions/audiobook.action';
+import { pendingAudioBookStatus } from '../../app/slices/audiobook.slice';
 
 function AudioBookDonationComponent() {
   const dispatch = useDispatch();
+  const status = useSelector(state => state.audiobook.status)
   //Audio books
   const [title, settitle] = useState();
   const [author, setauthor] = useState();
@@ -13,8 +16,21 @@ function AudioBookDonationComponent() {
   const [edition, setedition] = useState();
   const [audioLink, setaudioLink] = useState();
 
+  useEffect(()=>{
+    if(status === "success"){
+      settitle('');
+      setauthor('');
+      setgenre('');
+      setdescription('');
+      setpublisher('');
+      setedition('');
+      setaudioLink('')
+    }
+  },[status])
+
   const onHandleSubmit = (e) => {
     e.preventDefault();
+    dispatch(pendingAudioBookStatus())
     const audioBook = {
       title,
       author,
@@ -26,13 +42,9 @@ function AudioBookDonationComponent() {
     };
 
     dispatch(saveAudioBook(audioBook));
-    settitle('');
-    setauthor('');
-    setgenre('');
-    setdescription('');
-    setpublisher('');
-    setedition('');
-    setaudioLink('')
+
+
+
   };
   return (
     <div>
@@ -195,12 +207,22 @@ function AudioBookDonationComponent() {
                 </div>
               </div>
               <div className='bg-gray-50 px-4 py-3 text-right sm:px-6'>
-                <button
-                  type='submit'
-                  className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
-                >
-                  Save
-                </button>
+                {status === 'pending' ? (
+                  <button
+                    type='submit'
+                    className='inline-flex justify-center rounded-md border border-transparent bg-amber-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+                    disabled
+                  >
+                    Saving....
+                  </button>
+                ) : (
+                  <button
+                    type='submit'
+                    className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+                  >
+                    Save
+                  </button>
+                )}
               </div>
             </div>
           </form>

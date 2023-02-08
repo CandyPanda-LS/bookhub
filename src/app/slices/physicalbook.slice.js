@@ -21,6 +21,9 @@ const physicalBookSlice = createSlice({
     status: 'success',
   },
   reducers: {
+    pendingPhysicalBookStatus:(state) => {
+      state.status = 'pending';
+    },
     filteringPhysicalBooks: (state, action) => {
       state.filterBooks = filterBooks(state.books, action.payload);
     },
@@ -48,6 +51,6 @@ const physicalBookSlice = createSlice({
   },
 });
 
-export const { filteringPhysicalBooks } = physicalBookSlice.actions;
+export const { filteringPhysicalBooks, pendingPhysicalBookStatus } = physicalBookSlice.actions;
 
 export default physicalBookSlice.reducer;

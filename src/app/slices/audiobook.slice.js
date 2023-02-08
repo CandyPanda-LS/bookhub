@@ -26,6 +26,9 @@ const audiobookSlice = createSlice({
     status: 'success',
   },
   reducers: {
+    pendingAudioBookStatus:(state) => {
+      state.status = 'pending';
+    },
     getBookById: (state, action) => {
       state.book = getBookByIdFunc(state.books, action.payload);
     },
@@ -51,6 +54,6 @@ const audiobookSlice = createSlice({
   },
 });
 
-export const { getBookById, filteringAudioBooks } = audiobookSlice.actions;
+export const { getBookById, filteringAudioBooks, pendingAudioBookStatus } = audiobookSlice.actions;
 
 export default audiobookSlice.reducer;
