@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAllBooks } from '../actions/digitalbook.action';
+import { fetchAllBooks, saveDigitalBook } from '../actions/digitalbook.action';
 
 const getBookByIdFunc = (bookList, bookId) => {
   const result = bookList.filter(function (el) {
@@ -38,6 +38,12 @@ const digitalBookSlice = createSlice({
       // Add user to the state array
       state.books = action.payload;
       state.filterBooks = action.payload;
+      state.status = 'success';
+    });
+    builder.addCase(saveDigitalBook.fulfilled, (state, action) => {
+      // Add user to the state array
+      state.books = [...state.books,action.payload];
+      state.filterBooks = [...state.books,action.payload];
       state.status = 'success';
     });
   },

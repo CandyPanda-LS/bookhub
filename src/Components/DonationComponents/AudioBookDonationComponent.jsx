@@ -1,24 +1,25 @@
 import { React, useState } from 'react';
 
 function AudioBookDonationComponent() {
+
   //Audio books
-  const [audiobooktitle, setaudiobooktitle] = useState();
-  const [audiobookauthor, setaudiobookauthor] = useState();
-  const [audiobookgenre, setaudiobookgenre] = useState();
-  const [audiobookdescription, setaudiobookdescription] = useState();
-  const [audiobookpublisher, setaudiobookpublisher] = useState();
-  const [audiobookedition, setaudiobookedition] = useState();
-  const [audiobooklink, setaudiobooklink] = useState();
+  const [title, settitle] = useState()
+  const [author, setauthor] = useState()
+  const [genre, setgenre] = useState()
+  const [description, setdescription] = useState()
+  const [publisher, setpublisher] = useState()
+  const [edition, setedition] = useState()
+  const [audioLink, setaudioLink] = useState()
 
   const donationHandlerAudio = () => {
     const audioBookObj = {
-      audiobooktitle,
-      audiobookauthor,
-      audiobookgenre,
-      audiobookdescription,
-      audiobookpublisher,
-      audiobookedition,
-      audiobooklink,
+      title,
+      author,
+      genre,
+      description,
+      publisher,
+      edition,
+      audioLink,
     };
   };
   return (
@@ -51,7 +52,7 @@ function AudioBookDonationComponent() {
                       id='first-name'
                       autoComplete='given-name'
                       className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
-                      onChange={(e) => setaudiobooktitle(e.target.value)}
+                      onChange={(e) => settitle(e.target.value)}
                     />
                   </div>
 
@@ -68,7 +69,7 @@ function AudioBookDonationComponent() {
                       id='last-name'
                       autoComplete='family-name'
                       className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
-                      onChange={(e) => setaudiobookauthor(e.target.value)}
+                      onChange={(e) => setauthor(e.target.value)}
                     />
                   </div>
 
@@ -84,7 +85,7 @@ function AudioBookDonationComponent() {
                       name='country'
                       autoComplete='country-name'
                       className='mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
-                      onChange={(e) => setaudiobookgenre(e.target.value)}
+                      onChange={(e) => setgenre(e.target.value)}
                     >
                       <option>Education</option>
                       <option>Fiction</option>
@@ -111,7 +112,7 @@ function AudioBookDonationComponent() {
                       rows='3'
                       className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
                       placeholder='Discription about the audio book'
-                      onChange={(e) => setaudiobookdescription(e.target.value)}
+                      onChange={(e) => setdescription(e.target.value)}
                     ></textarea>
                   </div>
 
@@ -128,7 +129,7 @@ function AudioBookDonationComponent() {
                       id='city'
                       autoComplete='address-level2'
                       className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
-                      onChange={(e) => setaudiobookpublisher(e.target.value)}
+                      onChange={(e) => setpublisher(e.target.value)}
                     />
                   </div>
 
@@ -145,47 +146,27 @@ function AudioBookDonationComponent() {
                       id='region'
                       autoComplete='address-level1'
                       className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
-                      onChange={(e) => setaudiobookedition(e.target.value)}
+                      onChange={(e) => setedition(e.target.value)}
                     />
                   </div>
 
                   <div className='col-span-6 sm:col-span-3 lg:col-span-2'>
-                    <label className='block text-sm font-medium text-gray-700'>Audio Book</label>
-                    <div className='mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6'>
-                      <div className='space-y-1 text-center'>
-                        <svg
-                          className='mx-auto h-12 w-12 text-gray-400'
-                          stroke='currentColor'
-                          fill='none'
-                          viewBox='0 0 48 48'
-                          aria-hidden='true'
-                        >
-                          <path
-                            d='M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02'
-                            strokeWidth='2'
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                          />
-                        </svg>
-                        <div className='flex text-sm text-gray-600'>
-                          <label
-                            htmlFor='file-upload'
-                            className='relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500'
-                          >
-                            <span>Upload a file</span>
-                            <input
-                              id='file-upload'
-                              name='file-upload'
-                              type='file'
-                              className='sr-only'
-                            />
-                          </label>
-                          <p className='pl-1'>or drag and drop</p>
-                        </div>
-                        <p className='text-xs text-gray-500'>PNG, JPG, GIF up to 10MB</p>
-                      </div>
-                    </div>
+                    <label
+                      htmlFor='region'
+                      className='block text-sm font-medium text-left text-gray-700'
+                    >
+                      audio link
+                    </label>
+                    <input
+                      type='text'
+                      name='region'
+                      id='region'
+                      autoComplete='address-level1'
+                      className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
+                      onChange={(e) => setaudioLink(e.target.value)}
+                    />
                   </div>
+
                 </div>
               </div>
               <div className='bg-gray-50 px-4 py-3 text-right sm:px-6'>
