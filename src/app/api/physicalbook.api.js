@@ -14,9 +14,9 @@ export const PHYSICALBOOKAPI = {
   donatePhysicalBook: (newBook) =>
     axios.post(`${BASE_URL}/api/book/donatebook`, newBook, requestConfigJson),
   requestPhysicalBook: (bookId) =>
-    axios.put(`${BASE_URL}/api/book/physicalbook/borrowrequest/${bookId}`),
+    axios.post(`${BASE_URL}/api/book/physicalbook/borrowrequest/${bookId}`, null, requestConfigJson),
   approvePhysicalBookRequest: (bookId) =>
-    axios.put(`${BASE_URL}/api/book/physicalbook/approve/${bookId}`),
+    axios.post(`${BASE_URL}/api/book/physicalbook/approve/${bookId}`),
   //   deletePost: (postId) =>
   //     axios.delete(`https://jsonplaceholder.typicode.com/posts/${postId}`),
 };

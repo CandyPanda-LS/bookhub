@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import regBannerImg from '../assets/regBannerImg.png';
 import { BiSearchAlt } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllPhysicalBooks } from '../app/actions/physicalbook.action';
+import { fetchAllPhysicalBooks, requestPhysicalBook } from '../app/actions/physicalbook.action';
 
 function BookBurrowPageComponent() {
   const books = useSelector((state) => state.physicalbook.books);
@@ -11,6 +11,10 @@ function BookBurrowPageComponent() {
   useEffect(() => {
     dispatch(fetchAllPhysicalBooks());
   }, [dispatch]);
+
+  const handleOnRequest = (bookId) => {
+    dispatch(requestPhysicalBook(bookId));
+  };
 
   return (
     <div>
@@ -124,7 +128,10 @@ function BookBurrowPageComponent() {
                         <td className='px-6 py-4'> {book.status}</td>
                         <td className='px-6 py-4'> {book.donatedBy}</td>
                         <td className='flex items-center px-6 py-4 space-x-3'>
-                          <button className='font-medium text-red-600 dark:text-red-500 hover:underline'>
+                          <button
+                            className='font-medium text-red-600 dark:text-red-500 hover:underline'
+                            onClick={() => handleOnRequest(book.id)}
+                          >
                             Request
                           </button>
                         </td>

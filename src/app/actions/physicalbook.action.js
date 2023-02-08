@@ -16,3 +16,11 @@ export const donatePhysicalBook = createAsyncThunk(
     return response.data;
   },
 );
+
+export const requestPhysicalBook = createAsyncThunk(
+  'physicalbook/requestPhysicalBook',
+  async (bookId) => {
+    const response = await PHYSICALBOOKAPI.requestPhysicalBook(bookId);
+    return response.data;
+  },
+);

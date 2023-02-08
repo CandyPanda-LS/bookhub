@@ -24,6 +24,13 @@ function PhysicalBookDonationComponent() {
       donatedBy: user.fullName,
     };
     dispatch(donatePhysicalBook(donatedBook));
+
+    // settitle('');
+    // setauthor('');
+    // setgenre('');
+    // setdescription('');
+    // setpublisher('');
+    // setedition('');
   };
   return (
     <div className='mt-10 sm:mt-0'>
