@@ -28,7 +28,7 @@ function DigitalLibraryPageComponent() {
       <section id='search'>
         <div className='m-2'>
           <div className='container flex 	 flex-col-reverse  mx-auto  space-y-0 md:space-y-0 md:flex-row'>
-            <div className=' md:w-3/4 mx-2 '>
+            <div className=' md:w-full mx-2 '>
               <div className='mt-1 flex rounded-md shadow-sm'>
                 <span className='inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500'>
                   Search

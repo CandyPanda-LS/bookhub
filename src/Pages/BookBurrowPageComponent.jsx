@@ -3,9 +3,10 @@ import regBannerImg from '../assets/regBannerImg.png';
 import { BiSearchAlt } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllPhysicalBooks, requestPhysicalBook } from '../app/actions/physicalbook.action';
+import { filteringPhysicalBooks } from '../app/slices/physicalbook.slice';
 
 function BookBurrowPageComponent() {
-  const books = useSelector((state) => state.physicalbook.books);
+  const books = useSelector((state) => state.physicalbook.filterBooks);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -53,8 +54,8 @@ function BookBurrowPageComponent() {
       </section>
       <section id='search'>
         <div className='m-2'>
-          <div className='container flex 	 flex-col-reverse  mx-auto  space-y-0 md:space-y-0 md:flex-row'>
-            <div className='mx-2 '>
+          <div className='container flex  flex-col-reverse  mx-auto  space-y-0 md:space-y-0 md:flex-row'>
+            <div className='md:w-full mx-2'>
               <div className='mt-1 flex rounded-md shadow-sm'>
                 <span className='inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500'>
                   Search
@@ -65,6 +66,9 @@ function BookBurrowPageComponent() {
                   id='company-website'
                   className='block w-full flex-1 rounded-none border-gray-300 focus:border-brightRed focus:ring-brightRed sm:text-sm'
                   placeholder='Enter the name of the book...'
+                  onChange={(e) => {
+                    dispatch(filteringPhysicalBooks(e.target.value));
+                  }}
                 />
                 <span className='inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 px-3 text-gray-500'>
                   <BiSearchAlt />
@@ -101,11 +105,15 @@ function BookBurrowPageComponent() {
                   <th scope='col' className='px-6 py-3'>
                     Edition
                   </th>
+
+                  <th scope='col' className='px-6 py-3'>
+                    Donated By
+                  </th>
                   <th scope='col' className='px-6 py-3'>
                     Status
                   </th>
                   <th scope='col' className='px-6 py-3'>
-                    Donated By
+                    Action
                   </th>
                 </tr>
               </thead>
@@ -125,8 +133,18 @@ function BookBurrowPageComponent() {
                         <td className='px-6 py-4'> {book.description}</td>
                         <td className='px-6 py-4'> {book.publisher}</td>
                         <td className='px-6 py-4'> {book.edition}</td>
-                        <td className='px-6 py-4'> {book.status}</td>
                         <td className='px-6 py-4'> {book.donatedBy}</td>
+                        <td className='px-6 py-4'>
+                          {book.status === 'BORROWED' && (
+                            <span className='font-medium text-red-500'>{book.status}</span>
+                          )}
+                          {book.status === 'PENDING' && (
+                            <span className='font-medium text-yellow-500'>{book.status}</span>
+                          )}
+                          {book.status === 'AVAILABLE' && (
+                            <span className='font-medium text-lime-500'>{book.status}</span>
+                          )}
+                        </td>
                         <td className='flex items-center px-6 py-4 space-x-3'>
                           <button
                             className='font-medium text-red-600 dark:text-red-500 hover:underline'
