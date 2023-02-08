@@ -13,19 +13,3 @@ export const saveDigitalBook = createAsyncThunk(
     return response.data;
   },
 );
-
-//   export const deletePost = createAsyncThunk(
-//     "posts/deletePost",
-//     async (postId) => {
-//       await POSTAPI.deletePost(postId);
-//       return postId;
-//     }
-//   );
-
-//   export const updatePost = createAsyncThunk(
-//     "posts/updatePost",
-//     async (post) => {
-//       const response = await POSTAPI.updatePost(post.id, post.updatedPost);
-//       return response.data;
-//     }
-//   );

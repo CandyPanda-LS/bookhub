@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchAllBooks, saveAudioBook } from '../actions/audiobook.action';
+import { toast } from 'react-toastify';
 
 const getBookByIdFunc = (bookList, bookId) => {
   const result = bookList.filter(function (el) {
@@ -45,6 +46,7 @@ const audiobookSlice = createSlice({
       state.books = [...state.books, action.payload];
       state.filterBooks = [...state.books, action.payload];
       state.status = 'success';
+      toast.success('Saved successfully');
     });
   },
 });

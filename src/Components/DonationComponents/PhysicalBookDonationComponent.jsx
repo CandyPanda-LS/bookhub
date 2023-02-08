@@ -25,12 +25,12 @@ function PhysicalBookDonationComponent() {
     };
     dispatch(donatePhysicalBook(donatedBook));
 
-    // settitle('');
-    // setauthor('');
-    // setgenre('');
-    // setdescription('');
-    // setpublisher('');
-    // setedition('');
+    settitle('');
+    setauthor('');
+    setgenre('');
+    setdescription('');
+    setpublisher('');
+    setedition('');
   };
   return (
     <div className='mt-10 sm:mt-0'>
@@ -66,6 +66,7 @@ function PhysicalBookDonationComponent() {
                       className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
                       value={title}
                       onChange={(e) => settitle(e.target.value)}
+                      required
                     />
                   </div>
 
@@ -84,6 +85,7 @@ function PhysicalBookDonationComponent() {
                       className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
                       value={author}
                       onChange={(e) => setauthor(e.target.value)}
+                      required
                     />
                   </div>
 
@@ -101,6 +103,7 @@ function PhysicalBookDonationComponent() {
                       className='mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
                       value={genre}
                       onChange={(e) => setgenre(e.target.value)}
+                      required
                     >
                       <option>Education</option>
                       <option>Fiction</option>
@@ -129,6 +132,7 @@ function PhysicalBookDonationComponent() {
                       placeholder='Discription about the donation book'
                       value={description}
                       onChange={(e) => setdescription(e.target.value)}
+                      required
                     ></textarea>
                   </div>
 
@@ -147,6 +151,7 @@ function PhysicalBookDonationComponent() {
                       className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
                       value={publisher}
                       onChange={(e) => setpublisher(e.target.value)}
+                      required
                     />
                   </div>
 
@@ -165,6 +170,7 @@ function PhysicalBookDonationComponent() {
                       className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
                       value={edition}
                       onChange={(e) => setedition(e.target.value)}
+                      required
                     />
                   </div>
                 </div>
