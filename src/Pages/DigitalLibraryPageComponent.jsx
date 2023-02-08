@@ -4,13 +4,15 @@ import PreviewSectionCardComponent from '../Components/PreviewSectionCardCompone
 import PastPapersGallery from '../Components/PastPapersGallery';
 import DigitalBookGallery from '../Components/DigitalBooksGallery';
 import { useDispatch } from 'react-redux';
-import { filteringBooks } from '../app/slices/digitalbook.slice';
+import { filteringDigitalBooks } from '../app/slices/digitalbook.slice';
 import { filteringPapers } from '../app/slices/paper.slice';
+import AudioBooksGallery from '../Components/AudioBooksGallery';
+import { filteringAudioBooks } from '../app/slices/audiobook.slice';
 
 const sectionTypes = {
   DIGITAL_BOOKS: 'DIGITAL_BOOKS',
   PAST_PAPERS: 'PAST_PAPERS',
-  AUDIO_BOOK: 'DIGITAL_BOOKS',
+  AUDIO_BOOK: 'AUDIO_BOOK',
 };
 
 function DigitalLibraryPageComponent() {
@@ -39,7 +41,19 @@ function DigitalLibraryPageComponent() {
                     className='block w-full flex-1 rounded-none border-gray-300 focus:border-brightRed focus:ring-brightRed sm:text-sm'
                     placeholder='Enter the name of the book...'
                     onChange={(e) => {
-                      dispatch(filteringBooks(e.target.value));
+                      dispatch(filteringDigitalBooks(e.target.value));
+                    }}
+                  />
+                )}
+                {activeSection === sectionTypes.AUDIO_BOOK && (
+                  <input
+                    type='text'
+                    name='company-website'
+                    id='company-website'
+                    className='block w-full flex-1 rounded-none border-gray-300 focus:border-brightRed focus:ring-brightRed sm:text-sm'
+                    placeholder='Enter the name of the book...'
+                    onChange={(e) => {
+                      dispatch(filteringAudioBooks(e.target.value));
                     }}
                   />
                 )}
@@ -88,7 +102,7 @@ function DigitalLibraryPageComponent() {
         </div>
       </section>
       {activeSection === sectionTypes.DIGITAL_BOOKS && <DigitalBookGallery />}
-      {/* // {activeSection === sectionTypes.AUDIO_BOOK && <PastPapersGallery />} */}
+      {activeSection === sectionTypes.AUDIO_BOOK && <AudioBooksGallery />}
       {activeSection === sectionTypes.PAST_PAPERS && <PastPapersGallery />}
     </div>
   );

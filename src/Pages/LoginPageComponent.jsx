@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import logBannerImg from '../assets/logBannerImg.png';
 import { CgProfile } from 'react-icons/cg';
 import { AiFillLock } from 'react-icons/ai';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../app/actions/user.actions';
 import { useEffect } from 'react';
 
@@ -10,12 +10,13 @@ function LoginPageComponent() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const dispatch = useDispatch();
+  const loginStatus = useSelector(state => state.user.loginStatus);
 
   useEffect(() => {
-    if (localStorage.getItem('Authorization')) {
+    if (loginStatus) {
       window.location.href = '/';
     }
-  }, []);
+  }, [loginStatus]);
 
   const loginHandler = () => {
     const userCredentials = {

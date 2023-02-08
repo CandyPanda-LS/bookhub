@@ -28,7 +28,7 @@ const digitalBookSlice = createSlice({
     getBookById: (state, action) => {
       state.book = getBookByIdFunc(state.books, action.payload);
     },
-    filteringBooks: (state, action) => {
+    filteringDigitalBooks: (state, action) => {
       state.filterBooks = filterBooks(state.books, action.payload);
     },
   },
@@ -43,6 +43,6 @@ const digitalBookSlice = createSlice({
   },
 });
 
-export const { getBookById, filteringBooks } = digitalBookSlice.actions;
+export const { getBookById, filteringDigitalBooks } = digitalBookSlice.actions;
 
 export default digitalBookSlice.reducer;

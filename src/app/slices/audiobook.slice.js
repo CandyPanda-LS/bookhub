@@ -1,23 +1,48 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchAllBooks } from '../actions/audiobook.action';
 
+const getBookByIdFunc = (bookList, bookId) => {
+  const result = bookList.filter(function (el) {
+    return el.id === bookId;
+  });
+
+  return result ? result[0] : null; // or undefined
+};
+
+const filterBooks = (bookList, searchWord) => {
+  let newArray = bookList.filter(function (el) {
+    return el.title.toLowerCase().includes(searchWord.toLowerCase());
+  });
+  return newArray;
+};
+
 const audiobookSlice = createSlice({
   name: 'audiobook',
   initialState: {
-    audiobooks: [],
+    books: [],
+    book: null,
+    filterBooks: [],
     status: 'success',
   },
-  reducers: {},
+  reducers: {
+    getBookById: (state, action) => {
+      state.book = getBookByIdFunc(state.books, action.payload);
+    },
+    filteringAudioBooks: (state, action) => {
+      state.filterBooks = filterBooks(state.books, action.payload);
+    },
+  },
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
     builder.addCase(fetchAllBooks.fulfilled, (state, action) => {
       // Add user to the state array
-      state.audiobooks = action.payload;
+      state.books = action.payload;
+      state.filterBooks = action.payload;
       state.status = 'success';
     });
   },
 });
 
-// export const {} = audiobookSlice.actions;
+export const { getBookById, filteringAudioBooks } = audiobookSlice.actions;
 
 export default audiobookSlice.reducer;
