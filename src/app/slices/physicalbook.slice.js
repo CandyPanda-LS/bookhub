@@ -48,6 +48,6 @@ const physicalBookSlice = createSlice({
   },
 });
 
-export const {filteringPhysicalBooks} = physicalBookSlice.actions;
+export const { filteringPhysicalBooks } = physicalBookSlice.actions;
 
 export default physicalBookSlice.reducer;

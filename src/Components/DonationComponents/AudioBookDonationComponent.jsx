@@ -1,18 +1,21 @@
 import { React, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { saveAudioBook } from '../../app/actions/audiobook.action';
 
 function AudioBookDonationComponent() {
-
+  const dispatch = useDispatch();
   //Audio books
-  const [title, settitle] = useState()
-  const [author, setauthor] = useState()
-  const [genre, setgenre] = useState()
-  const [description, setdescription] = useState()
-  const [publisher, setpublisher] = useState()
-  const [edition, setedition] = useState()
-  const [audioLink, setaudioLink] = useState()
+  const [title, settitle] = useState();
+  const [author, setauthor] = useState();
+  const [genre, setgenre] = useState();
+  const [description, setdescription] = useState();
+  const [publisher, setpublisher] = useState();
+  const [edition, setedition] = useState();
+  const [audioLink, setaudioLink] = useState();
 
-  const donationHandlerAudio = () => {
-    const audioBookObj = {
+  const onHandleSubmit = (e) => {
+    e.preventDefault();
+    const audioBook = {
       title,
       author,
       genre,
@@ -21,6 +24,7 @@ function AudioBookDonationComponent() {
       edition,
       audioLink,
     };
+    dispatch(saveAudioBook(audioBook));
   };
   return (
     <div>
@@ -166,12 +170,11 @@ function AudioBookDonationComponent() {
                       onChange={(e) => setaudioLink(e.target.value)}
                     />
                   </div>
-
                 </div>
               </div>
               <div className='bg-gray-50 px-4 py-3 text-right sm:px-6'>
                 <button
-                  type='submit'
+                  onClick={onHandleSubmit}
                   className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
                 >
                   Save

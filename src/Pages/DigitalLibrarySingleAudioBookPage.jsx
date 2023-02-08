@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import { getBookById } from '../app/slices/audiobook.slice';
 
 function DigitalLibrarySingleAudioBookPage() {
-
   const { bookid } = useParams();
   const dispatch = useDispatch();
   const book = useSelector((state) => state.audiobook.book);
@@ -29,11 +28,11 @@ function DigitalLibrarySingleAudioBookPage() {
             <div class='w-full m-5 p-10 container bg-slate-100 rounded-md'>
               <h1 class='text-2xl font-bold text-gray-900 '>{book.title}</h1>
               <div className='flex flex-col m-3 justify-center items-center'>
-                              <iframe
-                title='PDF Viewer'
-                src='https://drive.google.com/file/d/13n83VPO8FxuPxLmhapEBc4YYcaoB1o16/preview'
-                className='w-full h-full rounded-lg'
-              ></iframe>
+                <iframe
+                  title='PDF Viewer'
+                  src='https://drive.google.com/file/d/13n83VPO8FxuPxLmhapEBc4YYcaoB1o16/preview'
+                  className='w-full h-full rounded-lg'
+                ></iframe>
               </div>
               <h2 class='text-md font-bold mb-2 text-gray-600 '>{book.author}</h2>
               <p class='text-gray-700 mb-2'>{book.description}</p>

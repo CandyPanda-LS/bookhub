@@ -42,8 +42,8 @@ const audiobookSlice = createSlice({
     });
     builder.addCase(saveAudioBook.fulfilled, (state, action) => {
       // Add user to the state array
-      state.books = [...state.books,action.payload];
-      state.filterBooks = [...state.books,action.payload];
+      state.books = [...state.books, action.payload];
+      state.filterBooks = [...state.books, action.payload];
       state.status = 'success';
     });
   },

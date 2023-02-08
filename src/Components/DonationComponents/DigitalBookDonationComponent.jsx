@@ -58,9 +58,9 @@ function DigitalBookDonationComponent() {
       publisher,
       edition,
       pdfLink,
-      coverImage
+      coverImage,
     };
-    dispatch(saveDigitalBook(digitalBook))
+    dispatch(saveDigitalBook(digitalBook));
   };
   return (
     <div className='mt-10 sm:mt-0'>

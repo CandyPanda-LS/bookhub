@@ -32,10 +32,7 @@ function RouteComponent() {
             path='/digitalbook/:bookid'
             element={<DigitalLibrarySingleDigitalBookComponent />}
           />
-          <Route
-            path='/audiobook/:bookid'
-            element={<DigitalLibrarySingleAudioBookPage />}
-          />
+          <Route path='/audiobook/:bookid' element={<DigitalLibrarySingleAudioBookPage />} />
           <Route path='/contact-us' element={<ContactUsPageComponent />} />
           <Route path='/profile' element={<ProfilePageComponent />} />
           <Route path='/donate' element={<BookDonationPageComponent />} />
