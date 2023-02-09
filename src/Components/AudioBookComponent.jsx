@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import audioImage from "../assets/audio.webp"
+import audioImage from '../assets/audio.webp';
 
 function AudioBookComponent({ book }) {
   return (

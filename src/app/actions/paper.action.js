@@ -6,23 +6,7 @@ export const fetchAllPapers = createAsyncThunk('paper/fetchAllPapers', async () 
   return response.data;
 });
 
-export const savePastPaper = createAsyncThunk('paper/savePastPaper', async (newPastPaper) => {
-  const response = await PAPERAPI.savePastPaper(newPastPaper);
+export const savePaper = createAsyncThunk('paper/savePaper', async (newPaper) => {
+  const response = await PAPERAPI.savePaper(newPaper);
   return response.data;
 });
-
-//   export const deletePost = createAsyncThunk(
-//     "posts/deletePost",
-//     async (postId) => {
-//       await POSTAPI.deletePost(postId);
-//       return postId;
-//     }
-//   );
-
-//   export const updatePost = createAsyncThunk(
-//     "posts/updatePost",
-//     async (post) => {
-//       const response = await POSTAPI.updatePost(post.id, post.updatedPost);
-//       return response.data;
-//     }
-//   );

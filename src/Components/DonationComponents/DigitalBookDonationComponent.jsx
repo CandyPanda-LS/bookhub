@@ -148,15 +148,15 @@ function DigitalBookDonationComponent() {
                       value={genre}
                       required
                     >
-                      <option>Education</option>
-                      <option>Fiction</option>
-                      <option>Science Fiction</option>
-                      <option>History</option>
-                      <option>Poetry</option>
-                      <option>Short Story</option>
-                      <option>Fairy Tale</option>
-                      <option>Autobiography</option>
-                      <option>Thriller</option>
+                      <option value={'Education'}>Education</option>
+                      <option value={'Fiction'}>Fiction</option>
+                      <option value={'Science Fiction'}>Science Fiction</option>
+                      <option value={'History'}>History</option>
+                      <option value={'Poetry'}>Poetry</option>
+                      <option value={'Short Story'}>Short Story</option>
+                      <option value={'Fairy Tale'}>Fairy Tale</option>
+                      <option value={'Autobiography'}>Autobiography</option>
+                      <option value={'Thriller'}>Thriller</option>
                     </select>
                   </div>
 

@@ -1,57 +1,55 @@
-import { useEffect } from 'react';
-import { React, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { saveAudioBook } from '../../app/actions/audiobook.action';
-import { pendingAudioBookStatus } from '../../app/slices/audiobook.slice';
+import { savePaper } from '../../app/actions/paper.action';
+import { pendingPaperStatus } from '../../app/slices/paper.slice';
 
-function AudioBookDonationComponent() {
+function PaperDonationComponent() {
   const dispatch = useDispatch();
-  const status = useSelector((state) => state.audiobook.status);
-  //Audio books
-  const [title, settitle] = useState();
-  const [author, setauthor] = useState();
-  const [genre, setgenre] = useState();
-  const [description, setdescription] = useState();
-  const [publisher, setpublisher] = useState();
-  const [edition, setedition] = useState();
-  const [audioLink, setaudioLink] = useState();
+  const status = useSelector((state) => state.paper.status);
+
+  const [subject, setSubject] = useState();
+  const [grade, setGrade] = useState();
+  const [school, setSchool] = useState();
+  const [term, setTerm] = useState();
+  const [paperUrl, setPaperUrl] = useState();
+  const [paperType, setPaperType] = useState();
 
   useEffect(() => {
     if (status === 'success') {
-      settitle('');
-      setauthor('');
-      setgenre('');
-      setdescription('');
-      setpublisher('');
-      setedition('');
-      setaudioLink('');
+      setSubject('');
+      setGrade('');
+      setSchool('');
+      setTerm('');
+      setPaperUrl('');
+      setPaperType('');
     }
   }, [status]);
 
   const onHandleSubmit = (e) => {
     e.preventDefault();
-    dispatch(pendingAudioBookStatus());
-    const audioBook = {
-      title,
-      author,
-      genre,
-      description,
-      publisher,
-      edition,
-      audioLink,
+    dispatch(pendingPaperStatus());
+    const paper = {
+      subject,
+      grade,
+      school,
+      term,
+      paperUrl,
+      paperType,
+      deleted: false,
     };
 
-    dispatch(saveAudioBook(audioBook));
+    dispatch(savePaper(paper));
   };
+
   return (
     <div>
       <div className='md:grid md:grid-cols-3 md:gap-6'>
         <div className='md:col-span-1'>
           <div className='px-4 sm:px-0'>
-            <h3 className='text-lg font-medium leading-6 text-gray-900 mt-5'>Audio Books</h3>
+            <h3 className='text-lg font-medium leading-6 text-gray-900 mt-5'>Past Papers</h3>
             <p className='mt-1 text-sm text-gray-600'>
-              This may help you to publish audiobooks to the digital library. Make sure you have the
-              necessary copyrights to publish it{' '}
+              This may help you to publish past papers to the digital library. Make sure you have
+              the necessary copyrights to publish it{' '}
             </p>
           </div>
         </div>
@@ -65,7 +63,7 @@ function AudioBookDonationComponent() {
                       htmlFor='first-name'
                       className='block text-sm font-medium text-left text-gray-700'
                     >
-                      Book Title
+                      Subject
                     </label>
                     <input
                       type='text'
@@ -73,8 +71,8 @@ function AudioBookDonationComponent() {
                       id='first-name'
                       autoComplete='given-name'
                       className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
-                      onChange={(e) => settitle(e.target.value)}
-                      value={title}
+                      onChange={(e) => setSubject(e.target.value)}
+                      value={subject}
                       required
                     />
                   </div>
@@ -84,16 +82,35 @@ function AudioBookDonationComponent() {
                       htmlFor='last-name'
                       className='block text-sm font-medium text-left text-gray-700'
                     >
-                      Author name
+                      Grade
                     </label>
                     <input
-                      type='text'
+                      type='number'
                       name='last-name'
                       id='last-name'
                       autoComplete='family-name'
                       className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
-                      onChange={(e) => setauthor(e.target.value)}
-                      value={author}
+                      onChange={(e) => setGrade(e.target.value)}
+                      value={grade}
+                      required
+                    />
+                  </div>
+
+                  <div className='col-span-6 sm:col-span-3'>
+                    <label
+                      htmlFor='last-name'
+                      className='block text-sm font-medium text-left text-gray-700'
+                    >
+                      Term
+                    </label>
+                    <input
+                      type='number'
+                      name='last-name'
+                      id='last-name'
+                      autoComplete='family-name'
+                      className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
+                      onChange={(e) => setTerm(e.target.value)}
+                      value={term}
                       required
                     />
                   </div>
@@ -103,46 +120,20 @@ function AudioBookDonationComponent() {
                       htmlFor='country'
                       className='block text-sm font-medium text-left text-gray-700'
                     >
-                      Genre
+                      Type
                     </label>
                     <select
                       id='country'
                       name='country'
                       autoComplete='country-name'
                       className='mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
-                      onChange={(e) => setgenre(e.target.value)}
-                      value={genre}
+                      onChange={(e) => setPaperType(e.target.value)}
+                      value={paperType}
                       required
                     >
-                      <option value={'Education'}>Education</option>
-                      <option value={'Fiction'}>Fiction</option>
-                      <option value={'Science Fiction'}>Science Fiction</option>
-                      <option value={'History'}>History</option>
-                      <option value={'Poetry'}>Poetry</option>
-                      <option value={'Short Story'}>Short Story</option>
-                      <option value={'Fairy Tale'}>Fairy Tale</option>
-                      <option value={'Autobiography'}>Autobiography</option>
-                      <option value={'Thriller'}>Thriller</option>
+                      <option value={'ADVANCED_LEVEL'}>ADVANCED LEVEL</option>
+                      <option value={'ORDINARY_LEVEL'}>ORDINARY LEVEL</option>
                     </select>
-                  </div>
-
-                  <div className='col-span-6'>
-                    <label
-                      htmlFor='street-address'
-                      className='block text-sm text-left font-medium text-gray-700'
-                    >
-                      Description
-                    </label>
-                    <textarea
-                      id='about'
-                      name='about'
-                      rows='3'
-                      className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
-                      placeholder='Discription about the audio book'
-                      onChange={(e) => setdescription(e.target.value)}
-                      value={description}
-                      required
-                    ></textarea>
                   </div>
 
                   <div className='col-span-6 sm:col-span-6 lg:col-span-2'>
@@ -150,7 +141,7 @@ function AudioBookDonationComponent() {
                       htmlFor='city'
                       className='block text-sm font-medium text-left text-gray-700'
                     >
-                      Publisher
+                      School
                     </label>
                     <input
                       type='text'
@@ -158,8 +149,8 @@ function AudioBookDonationComponent() {
                       id='city'
                       autoComplete='address-level2'
                       className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
-                      onChange={(e) => setpublisher(e.target.value)}
-                      value={publisher}
+                      onChange={(e) => setSchool(e.target.value)}
+                      value={school}
                       required
                     />
                   </div>
@@ -169,7 +160,7 @@ function AudioBookDonationComponent() {
                       htmlFor='region'
                       className='block text-sm font-medium text-left text-gray-700'
                     >
-                      Edition
+                      Paper Link
                     </label>
                     <input
                       type='text'
@@ -177,27 +168,8 @@ function AudioBookDonationComponent() {
                       id='region'
                       autoComplete='address-level1'
                       className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
-                      onChange={(e) => setedition(e.target.value)}
-                      value={edition}
-                      required
-                    />
-                  </div>
-
-                  <div className='col-span-6 sm:col-span-3 lg:col-span-2'>
-                    <label
-                      htmlFor='region'
-                      className='block text-sm font-medium text-left text-gray-700'
-                    >
-                      audio link
-                    </label>
-                    <input
-                      type='text'
-                      name='region'
-                      id='region'
-                      autoComplete='address-level1'
-                      className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
-                      onChange={(e) => setaudioLink(e.target.value)}
-                      value={audioLink}
+                      onChange={(e) => setPaperUrl(e.target.value)}
+                      value={paperUrl}
                       required
                     />
                   </div>
@@ -229,4 +201,4 @@ function AudioBookDonationComponent() {
   );
 }
 
-export default AudioBookDonationComponent;
+export default PaperDonationComponent;

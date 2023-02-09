@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAllPapers } from '../actions/paper.action';
+import { fetchAllPapers, savePaper } from '../actions/paper.action';
+import { toast } from 'react-toastify';
 
 const filterPapers = (paperList, searchWord) => {
   let newArray = paperList.filter(function (el) {
@@ -16,6 +17,9 @@ const paperSlice = createSlice({
     filterPapers: [],
   },
   reducers: {
+    pendingPaperStatus: (state) => {
+      state.status = 'pending';
+    },
     filteringPapers: (state, action) => {
       state.filterPapers = filterPapers(state.papers, action.payload);
     },
@@ -28,9 +32,16 @@ const paperSlice = createSlice({
       state.papers = action.payload;
       state.status = 'success';
     });
+    builder.addCase(savePaper.fulfilled, (state, action) => {
+      // Add user to the state array
+      state.filterPapers = [...state.papers, action.payload];
+      state.papers = [state.papers, action.payload];
+      state.status = 'success';
+      toast.success('Saved successfully');
+    });
   },
 });
 
-export const { filteringPapers } = paperSlice.actions;
+export const { filteringPapers, pendingPaperStatus } = paperSlice.actions;
 
 export default paperSlice.reducer;

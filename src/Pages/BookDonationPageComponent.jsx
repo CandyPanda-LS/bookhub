@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import regBannerImg from '../assets/regBannerImg.png';
 import AudioBookDonationComponent from '../Components/DonationComponents/AudioBookDonationComponent';
 import DigitalBookDonationComponent from '../Components/DonationComponents/DigitalBookDonationComponent';
+import PaperDonationComponent from '../Components/DonationComponents/PaperDonationComponent';
 import PhysicalBookDonationComponent from '../Components/DonationComponents/PhysicalBookDonationComponent';
 
 function BookDonationPageComponent() {
@@ -56,6 +57,12 @@ function BookDonationPageComponent() {
 
           {user?.role === 'admin' && (
             <>
+              <div className='hidden sm:block' aria-hidden='true'>
+                <div className='py-5'>
+                  <div className='border-t border-gray-200'></div>
+                </div>
+              </div>
+              <PaperDonationComponent />
               <div className='hidden sm:block' aria-hidden='true'>
                 <div className='py-5'>
                   <div className='border-t border-gray-200'></div>
