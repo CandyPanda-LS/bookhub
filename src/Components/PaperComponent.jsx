@@ -5,7 +5,7 @@ import paperImage from "../assets/paper.webp"
 function PaperComponent({ paper }) {
   return (
     <div className='group relative'>
-      <Link to={{ pathname: paper.paperUrl }} target='_blank'>
+      <Link to={paper.paperUrl} target='_blank'>
         <div className='min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80'>
           <img
             src={paperImage}
