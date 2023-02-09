@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAllBooks, saveDigitalBook } from '../actions/digitalbook.action';
+import { deleteDigitalBook, fetchAllBooks, saveDigitalBook } from '../actions/digitalbook.action';
 import { toast } from 'react-toastify';
 
 const getBookByIdFunc = (bookList, bookId) => {
@@ -50,6 +50,17 @@ const digitalBookSlice = createSlice({
       state.filterBooks = [...state.books, action.payload];
       state.status = 'success';
       toast.success('Saved successfully');
+    });
+    builder.addCase(deleteDigitalBook.fulfilled, (state, action) => {
+      // Add user to the state array
+      state.books = state.books.filter(
+        (x) => x.id !== action.payload.id
+      );
+      state.filterBooks = state.books.filter(
+        (x) => x.id !== action.payload.id
+      );
+      state.status = 'success';
+      toast.success('Removed successfully');
     });
   },
 });

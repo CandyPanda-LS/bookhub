@@ -28,7 +28,7 @@ function DigitalLibrarySingleDigitalBookComponent() {
               <div className='flex flex-col m-3 justify-center items-center'>
                 <img
                   class='shadow-lg rounded-lg w-64 '
-                  src='https://edit.org/images/cat/book-covers-big-2019101610.jpg'
+                  src={book.coverImage}
                   alt='Product Cover'
                 />
               </div>

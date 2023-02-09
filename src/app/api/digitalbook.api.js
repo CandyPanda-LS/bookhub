@@ -13,4 +13,6 @@ export const DIGITALBOOKAPI = {
   fetchAllBooks: () => axios.get(`${BASE_URL}/api/book/digitalbook/all`),
   saveDigitalBooks: (newBook) =>
     axios.post(`${BASE_URL}/api/book/digitalbook`, newBook, requestConfigJson),
+  deleteDigitalBook: (bookId) =>
+    axios.post(`${BASE_URL}/api/book/digitalbook/delete/${bookId}`, null, requestConfigJson),
 };

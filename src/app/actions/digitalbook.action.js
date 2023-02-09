@@ -13,3 +13,11 @@ export const saveDigitalBook = createAsyncThunk(
     return response.data;
   },
 );
+
+export const deleteDigitalBook = createAsyncThunk(
+  'digitalbook/deleteDigitalBook',
+  async (bookId) => {
+    const response = await DIGITALBOOKAPI.deleteDigitalBook(bookId);
+    return response.data;
+  },
+);
