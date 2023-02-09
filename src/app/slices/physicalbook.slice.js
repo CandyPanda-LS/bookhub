@@ -46,6 +46,7 @@ const physicalBookSlice = createSlice({
     builder.addCase(requestPhysicalBook.fulfilled, (state, action) => {
       // Add user to the state array
       state.books = state.books.map((x) => (x.id === action.payload.id ? action.payload : x));
+      state.filterBooks = state.books.map((x) => (x.id === action.payload.id ? action.payload : x));
       state.status = 'success';
     });
   },
