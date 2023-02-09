@@ -41,13 +41,14 @@ const physicalBookSlice = createSlice({
       state.books = [...state.books, action.payload];
       state.filterBooks = [...state.filterBooks, action.payload];
       state.status = 'success';
-      toast.success('Donation Succes');
+      toast.success('Donation Success');
     });
     builder.addCase(requestPhysicalBook.fulfilled, (state, action) => {
       // Add user to the state array
       state.books = state.books.map((x) => (x.id === action.payload.id ? action.payload : x));
       state.filterBooks = state.books.map((x) => (x.id === action.payload.id ? action.payload : x));
       state.status = 'success';
+      toast.success('Request Success');
     });
   },
 });
